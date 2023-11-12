@@ -25,7 +25,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "i18next"
     ],
     "rules": {
         "react/jsx-indent": ["error", 2],
@@ -46,5 +47,6 @@ module.exports = {
             ],
             "newlines-between": "always"
         }],
+        "i18next/no-literal-string": "error"
     }
 }
