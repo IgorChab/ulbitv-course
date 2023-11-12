@@ -48,6 +48,10 @@ module.exports = {
             ],
             "newlines-between": "always"
         }],
-        "i18next/no-literal-string": "error"
+        "i18next/no-literal-string": "error",
+        "max-len": ['error', {
+            code: 100,
+            ignoreComments: true
+        }]
     }
 }

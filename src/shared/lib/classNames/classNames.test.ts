@@ -17,11 +17,17 @@ describe('classNames', () => {
 
   test('classNames with mods', () => {
     const expected = 'main class1 class2 hovered focused';
-    expect(classNames('main', { hovered: true, focused: true }, ['class1', 'class2'])).toBe(expected);
+    expect(classNames(
+      'main',
+      { hovered: true, focused: true },
+      ['class1', 'class2'])).toBe(expected);
   });
 
   test('classNames with mods included false', () => {
     const expected = 'main class1 class2 hovered';
-    expect(classNames('main', { hovered: true, focused: false }, ['class1', 'class2'])).toBe(expected);
+    expect(classNames(
+      'main',
+      { hovered: true, focused: false },
+      ['class1', 'class2'])).toBe(expected);
   });
 });

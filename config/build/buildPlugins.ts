@@ -5,7 +5,10 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 import { type BuildOptions } from './types/config';
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions): Array<webpack.WebpackPluginInstance | undefined> => {
+export const buildPlugins = ({
+  paths,
+  isDev
+}: BuildOptions): Array<webpack.WebpackPluginInstance | undefined> => {
   return [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
