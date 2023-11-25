@@ -1,0 +1,10 @@
+.pageLoader {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader div {
+  background-color: var(--inverted-bg-color);
+}
