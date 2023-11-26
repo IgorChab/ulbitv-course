@@ -1,5 +1,7 @@
 {
   "mainPage": "Main page",
   "aboutPage": "About page",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "somethingWentWrong": "Something went wrong",
+  "reloadPage": "Reload page"
 }
