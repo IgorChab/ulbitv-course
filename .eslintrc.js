@@ -18,6 +18,12 @@ module.exports = {
             ],
             "parserOptions": {
                 "sourceType": "script"
+            },
+        },
+        {
+            files: ['**/?(*.)+(spec|test).[tj]s?(x)'],
+            rules: {
+                "i18next/no-literal-string": "off"
             }
         }
     ],
