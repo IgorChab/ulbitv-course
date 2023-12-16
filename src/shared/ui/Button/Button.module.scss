@@ -1,5 +1,7 @@
 .button {
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 
 .clear {
@@ -7,4 +9,13 @@
   border: none;
   background: none;
   outline: none;
+  color: var(--primary-color);
+}
+
+.outline {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 30px;
 }

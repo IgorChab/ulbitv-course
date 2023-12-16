@@ -2,7 +2,6 @@ import React, { type FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 import styles from './PageError.module.scss';
 
@@ -12,14 +11,13 @@ interface PageErrorProps {
 
 export const PageError: FC<PageErrorProps> = ({ className }) => {
   const { t } = useTranslation();
-  const { theme } = useTheme();
 
   const reloadPage = () => {
     location.reload();
   };
 
   return (
-    <div className={classNames(styles.pageError, {}, [className, 'app', theme])}>
+    <div className={classNames(styles.pageError, {}, [className])}>
       <div className={styles.wrapper}>
         <h1>{t('somethingWentWrong')}</h1>
         <Button

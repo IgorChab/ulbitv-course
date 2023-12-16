@@ -5,21 +5,25 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss';
+import { PageError } from 'widgets/PageError';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const App = () => {
   const { theme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={''}>
-        <Navbar />
-        <div className="contentPage">
-          <Sidebar />
-          <div className="pageWrapper">
-            <AppRouter />
+      <ErrorBoundary fallback={<PageError />}>
+        <Suspense fallback={''}>
+          <Navbar />
+          <div className="contentPage">
+            <Sidebar />
+            <div className="pageWrapper">
+              <AppRouter />
+            </div>
           </div>
-        </div>
-      </Suspense>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 };

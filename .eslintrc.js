@@ -6,7 +6,8 @@ module.exports = {
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
         {
@@ -58,6 +59,7 @@ module.exports = {
         "max-len": ['error', {
             code: 100,
             ignoreComments: true
-        }]
+        }],
+        "react/display-name": "off"
     }
 }
