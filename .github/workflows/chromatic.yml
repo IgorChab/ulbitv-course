@@ -1,7 +1,4 @@
-# Workflow name
 name: 'Chromatic Publish'
-
-# Event for the workflow
 on:
   push:
     branches: [ master ]
