@@ -15,7 +15,7 @@
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "chromatic": "chromatic --storybook-log-file false"
+    "chromatic": "chromatic --no-storybook-log-file"
   },
   "keywords": [],
   "author": "",

@@ -10,19 +10,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
+
       - name: Install dependencies
         run: npm install
+
       - name: build production
         run: npm run build:prod
+
       - name: linting typescript
         run: npm run type:check
+
       - name: eslint check
         run: npm run eslint:check
+
       - name: linting css
         run: npm run stylelint:check
+
       - name: unit testing
         run: npm run test
-      - name: Publish to Chromatic
-        uses: chromaui/action@latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
