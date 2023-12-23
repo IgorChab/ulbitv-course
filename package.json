@@ -15,7 +15,7 @@
     "test": "jest --config ./config/jest/jest.config.ts",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic --no-storybook-log-file"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +38,7 @@
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
+    "@types/dotenv-webpack": "^7.0.7",
     "@types/jest": "^29.5.8",
     "@types/node": "^20.6.5",
     "@types/react": "^18.2.25",
@@ -48,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "chromatic": "^10.1.0",
     "css-loader": "^6.8.1",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.52.0",
     "eslint-config-standard-with-typescript": "^39.1.1",
     "eslint-plugin-i18next": "^6.0.3",
@@ -78,7 +80,6 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "dotenv": "^16.3.1",
     "i18next": "^23.6.0",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.3.1",
