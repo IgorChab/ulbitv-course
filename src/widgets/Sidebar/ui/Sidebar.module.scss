@@ -4,22 +4,56 @@
   background: var(--inverted-bg-color);
   transition: width 0.3s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 8px;
+}
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  fill: var(--primary-color);
+}
+
+.collapseButton {
+  height: 250px;
+  width: 32px;
+  align-self: flex-end;
 }
 
 .switchers {
   width: 100%;
+  height: 100px;
   display: flex;
-  position: absolute;
-  bottom: 20px;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.switchersCollapsed {
-  flex-direction: column;
+.linkTitle {
+  color: var(--secondary-color);
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .collapseButton {
+    align-self: center;
+  }
+
+  .switchers {
+    flex-direction: column;
+  }
+
+  .linkTitle {
+    display: none;
+  }
 }

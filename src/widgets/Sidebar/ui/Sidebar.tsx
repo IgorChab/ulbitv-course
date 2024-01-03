@@ -4,6 +4,11 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
+import { ArrowIcon } from 'shared/ui/ArrowIcon/ArrowIcon';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import HomeIcon from 'shared/assets/icons/icon_home.svg';
+import InfoIcon from 'shared/assets/icons/icon_info.svg';
+import { AppPaths } from 'shared/config/routeConfig/routeConfig';
 
 import styles from './Sidebar.module.scss';
 
@@ -25,14 +30,27 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: isCollapsed }, [className])}
     >
+      <div className={styles.linksContainer}>
+        <AppLink to={AppPaths.main} className={styles.linkItem}>
+          <HomeIcon />
+          <p className={styles.linkTitle}>{t('mainPage')}</p>
+        </AppLink>
+        <AppLink to={AppPaths.about} className={styles.linkItem}>
+          <InfoIcon />
+          <p className={styles.linkTitle}>{t('aboutPage')}</p>
+        </AppLink>
+      </div>
       <Button
         data-testid="toggleSidebarButton"
-        variant='clear'
+        variant="clear"
+        className={styles.collapseButton}
         onClick={collapseSidebar}
       >
-        {t('toggle')}
+        <ArrowIcon
+          direction={isCollapsed ? 'right' : 'left'}
+        />
       </Button>
-      <div className={classNames(styles.switchers, { [styles.switchersCollapsed]: isCollapsed })}>
+      <div className={classNames(styles.switchers)}>
         <ThemeSwitcher />
         <LangSwitcher />
       </div>

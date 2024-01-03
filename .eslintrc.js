@@ -7,8 +7,13 @@ module.exports = {
     "extends": [
         "standard-with-typescript",
         "plugin:react/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
     ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
     "overrides": [
         {
             "env": {
