@@ -16,7 +16,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    isOpen: true,
-    children: 'Default modal'
+    children: (
+      <p>
+        Нужно переключить тему или локализацию,<br/>
+        чтобы модалка корректно отрендерилась,<br/>
+        так происходит из-за портала
+      </p>
+    )
   }
 };

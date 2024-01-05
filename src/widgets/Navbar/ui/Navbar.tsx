@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { Modal } from 'shared/ui/Modal/Modal';
+import { OptionalRender } from 'shared/OptionalRender/OptionalRender';
 
 import styles from './Navbar.module.scss';
 
@@ -25,9 +26,12 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         <Button variant="clear" onClick={onToggleModal}>
           {t('login')}
         </Button>
-        <Modal isOpen={isOpenModal} onClose={onToggleModal}>
-          <p>modal kjsdbchjsbdvbksjbvkjfbsv</p>
-        </Modal>
+        <OptionalRender condition={isOpenModal}>
+          <Modal onClose={onToggleModal}>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
+            <p>modal kjsdbchjsbdvbksjbvkjfbsv</p>
+          </Modal>
+        </OptionalRender>
       </div>
     </div>
   );
