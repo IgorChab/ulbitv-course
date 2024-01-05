@@ -27,7 +27,7 @@ module.exports = {
             },
         },
         {
-            files: ['**/?(*.)+(spec|test).[tj]s?(x)'],
+            files: ['**/?(*.)+(spec|test|stories).[tj]s?(x)'],
             rules: {
                 "i18next/no-literal-string": "off"
             }
@@ -39,7 +39,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "react/jsx-indent": ["error", 2],
@@ -65,6 +66,8 @@ module.exports = {
             code: 100,
             ignoreComments: true
         }],
-        "react/display-name": "off"
+        "react/display-name": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

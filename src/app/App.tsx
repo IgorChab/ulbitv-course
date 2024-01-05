@@ -1,12 +1,13 @@
-import { Sidebar } from 'widgets/Sidebar';
 import React, { Suspense } from 'react';
+import { Sidebar } from 'widgets/Sidebar';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
-import './styles/index.scss';
 import { PageError } from 'widgets/PageError';
 import { ErrorBoundary } from 'react-error-boundary';
+
+import './styles/index.scss';
 
 const App = () => {
   const { theme } = useTheme();
