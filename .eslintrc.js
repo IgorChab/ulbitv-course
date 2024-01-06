@@ -68,6 +68,7 @@ module.exports = {
         }],
         "react/display-name": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        '@typescript-eslint/no-explicit-any': 'error',
     }
 }

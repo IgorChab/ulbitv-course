@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import { withTheme } from 'shared/config/storybook/decorators/withTheme';
 import { withBrowserRouter } from 'shared/config/storybook/decorators/withBrowserRouter';
 import { withI18next } from 'shared/config/storybook/decorators/withI18next';
+import { withStoreProvider } from 'shared/config/storybook/decorators/withStoreProvider';
 
 export const globalTypes = {
   theme: {
@@ -44,7 +45,7 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [withBrowserRouter, withI18next, withTheme]
+  decorators: [withBrowserRouter, withI18next, withTheme, withStoreProvider]
 };
 
 export default preview;
