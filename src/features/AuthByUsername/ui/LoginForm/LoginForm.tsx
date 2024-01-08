@@ -29,13 +29,13 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
       <Input
         value={username}
         onChange={onChangeUsername}
-        label="Введите username"
+        label={t('enterUsername')}
         autoFocus
       />
       <Input
         value={password}
         onChange={onChangePassword}
-        label="Введите пароль"
+        label={t('enterPassword')}
       />
       <Button
         className={styles.loginButton}

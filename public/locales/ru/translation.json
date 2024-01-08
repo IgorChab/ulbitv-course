@@ -4,5 +4,7 @@
   "pageNotFound": "Страница не найдена",
   "somethingWentWrong": "Что-то пошло не так :(",
   "reloadPage": "Обновить страницу",
-  "login": "Войти"
+  "login": "Войти",
+  "enterUsername": "Введите username",
+  "enterPassword": "Введите пароль"
 }
