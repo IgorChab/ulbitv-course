@@ -2,8 +2,8 @@ import React, { type FC, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { OptionalRender } from 'shared/ui/OptionalRender/OptionalRender';
+import { LoginModal } from 'features/AuthByUsername';
 
 import styles from './Navbar.module.scss';
 
@@ -27,10 +27,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           {t('login')}
         </Button>
         <OptionalRender condition={isOpenModal}>
-          <Modal onClose={onToggleModal}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <p>modal kjsdbchjsbdvbksjbvkjfbsv</p>
-          </Modal>
+          <LoginModal onClose={onToggleModal} />
         </OptionalRender>
       </div>
     </div>
