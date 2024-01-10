@@ -31,3 +31,11 @@ export const Outline: Story = {
     children: 'Label'
   }
 };
+
+export const Disabled: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Label',
+    disabled: true
+  }
+};
