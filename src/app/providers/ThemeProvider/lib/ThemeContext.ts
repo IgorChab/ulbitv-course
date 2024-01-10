@@ -15,5 +15,3 @@ export const ThemeContext = createContext<ThemeContextProps>({
   setTheme (value: ((prevState: Theme) => Theme) | Theme): void {},
   theme: Theme.LIGHT
 });
-
-export const LOCAL_STORAGE_THEME_KEY = 'theme';

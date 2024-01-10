@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Sidebar } from 'widgets/Sidebar';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -6,11 +6,18 @@ import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
 import { PageError } from 'widgets/PageError';
 import { ErrorBoundary } from 'react-error-boundary';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+import { userActions } from 'entities/User';
 
 import './styles/index.scss';
 
 const App = () => {
   const { theme } = useTheme();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app', {}, [theme])}>

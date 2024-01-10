@@ -10,3 +10,7 @@ export const createReduxStore = (initialState?: StateSchema) => {
     preloadedState: initialState
   });
 };
+
+export const store = createReduxStore();
+
+export type AppDispatch = typeof store.dispatch;

@@ -5,6 +5,9 @@
   "somethingWentWrong": "Что-то пошло не так :(",
   "reloadPage": "Обновить страницу",
   "login": "Войти",
+  "logout": "Выйти",
   "enterUsername": "Введите username",
-  "enterPassword": "Введите пароль"
+  "enterPassword": "Введите пароль",
+  "loginForm": "Форма авторизации",
+  "loginError": "Неверные учетные данные"
 }

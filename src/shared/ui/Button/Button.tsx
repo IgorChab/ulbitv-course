@@ -16,6 +16,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
     children,
     onClick,
     variant,
+    disabled,
     ...otherProps
   } = props;
 
@@ -23,8 +24,11 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
 
   return (
     <button
-      className={classNames(styles.button, {}, [className, correctClassVariant])}
+      className={classNames(
+        styles.button, { [styles.disabled]: !!disabled }, [className, correctClassVariant]
+      )}
       onClick={onClick}
+      disabled={disabled}
       {...otherProps}
     >
       {children}

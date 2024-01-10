@@ -5,6 +5,9 @@
   "somethingWentWrong": "Something went wrong",
   "reloadPage": "Reload page",
   "login": "Login",
+  "logout": "Logout",
   "enterUsername": "Enter username",
-  "enterPassword": "Enter password"
+  "enterPassword": "Enter password",
+  "loginForm": "Login form",
+  "loginError": "Invalid credentials"
 }
