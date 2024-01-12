@@ -1,16 +1,25 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, type EnhancedStore, type ReducersMapObject } from '@reduxjs/toolkit';
 
-import { rootReducer } from './reducer';
+import { createReducerManager } from './reducerManager';
 import { type StateSchema } from './StateSchema';
 
-export const createReduxStore = (initialState?: StateSchema) => {
-  return configureStore<StateSchema>({
-    reducer: rootReducer,
+export interface StoreWithReducerManager extends EnhancedStore<StateSchema> {
+  reducerManager: ReturnType<typeof createReducerManager>
+}
+
+export const createReduxStore = (
+  initialState?: StateSchema,
+  initialReducers?: ReducersMapObject<StateSchema>
+) => {
+  const reducerManager = createReducerManager(initialReducers);
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState
-  });
+  }) as StoreWithReducerManager;
+
+  store.reducerManager = reducerManager;
+
+  return store;
 };
-
-export const store = createReduxStore();
-
-export type AppDispatch = typeof store.dispatch;

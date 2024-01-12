@@ -1,10 +1,9 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 import { type LoginSchema } from '../types/LoginSchema';
 
 const initialState: LoginSchema = {
-  isOpenLoginModal: false,
   isLoading: false,
   isError: false
 };
@@ -13,10 +12,7 @@ const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    clearState: (state) => initialState,
-    setIsOpenLoginModal: (state, action: PayloadAction<boolean>) => {
-      state.isOpenLoginModal = action.payload;
-    }
+    clearState: (state) => initialState
   },
   extraReducers: (builder) => {
     builder.addCase(loginByUsername.fulfilled, (state, action) => {

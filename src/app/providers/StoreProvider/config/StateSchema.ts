@@ -5,5 +5,9 @@ import { type LoginSchema } from 'features/AuthByUsername';
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
-  login: LoginSchema
+
+  // Async reducers
+  login?: LoginSchema
 }
+
+export type ReducerNames = keyof StateSchema;

@@ -2,22 +2,30 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { type User, userActions } from 'entities/User';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
-import { loginActions } from 'features/AuthByUsername';
 
-interface AuthData {
+interface Payload {
   username: string
   password: string
+  onCloseLoginModal?: () => void
 }
 
 export const loginByUsername = createAsyncThunk(
   'login/loginByUsername',
-  async (authData: AuthData, thunkAPI) => {
+  async (payload: Payload, thunkAPI) => {
+    const {
+      username,
+      password,
+      onCloseLoginModal
+    } = payload;
     try {
-      const response = await axios.post<User>('http://localhost:8000/login', authData);
+      const response = await axios.post<User>('http://localhost:8000/login', {
+        username,
+        password
+      });
 
       thunkAPI.dispatch(userActions.setAuthData(response.data));
-      thunkAPI.dispatch(loginActions.setIsOpenLoginModal(false));
       localStorage.setItem(LocalStorageKeys.AUTH_USER, JSON.stringify(response.data));
+      onCloseLoginModal?.();
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue('error');

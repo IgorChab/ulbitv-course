@@ -20,7 +20,6 @@ export const WithError: Story = {
   decorators: [
     withStoreProvider({
       login: {
-        isOpenLoginModal: true,
         isError: true
       }
     })
@@ -31,7 +30,6 @@ export const WithLoading: Story = {
   decorators: [
     withStoreProvider({
       login: {
-        isOpenLoginModal: true,
         isLoading: true
       }
     })

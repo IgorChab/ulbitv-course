@@ -1,12 +1,11 @@
-import React, { type FC, Suspense, useCallback } from 'react';
+import React, { type FC, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
-import { getIsOpenLoginModal, loginActions, LoginModal } from 'features/AuthByUsername';
+import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
-import { Loader } from 'shared/ui/Loader/Loader';
 
 import styles from './Navbar.module.scss';
 
@@ -18,20 +17,21 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const isUserAuth = !!useSelector(getUserAuthData);
-  const isOpenLoginModal = useSelector(getIsOpenLoginModal);
 
   const onOpenLoginModal = useCallback(() => {
-    dispatch(loginActions.setIsOpenLoginModal(true));
+    setIsOpenModal(true);
   }, []);
 
   const onCloseLoginModal = useCallback(() => {
-    dispatch(loginActions.setIsOpenLoginModal(false));
+    setIsOpenModal(false);
   }, []);
 
   const onClickLogout = useCallback(() => {
     dispatch(userActions.logout());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
@@ -48,10 +48,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             </Button>
             )
         }
-        <OptionalRender condition={isOpenLoginModal}>
-          <Suspense fallback={<Loader />}>
-            <LoginModal onClose={onCloseLoginModal} />
-          </Suspense>
+        <OptionalRender condition={isOpenModal}>
+          <LoginModal onClose={onCloseLoginModal} />
         </OptionalRender>
       </div>
     </div>
