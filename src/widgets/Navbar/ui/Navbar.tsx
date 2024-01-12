@@ -1,11 +1,12 @@
-import React, { type FC, useCallback, useState } from 'react';
+import React, { type FC, Suspense, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
-import { OptionalRender } from 'shared/ui/OptionalRender/OptionalRender';
-import { LoginModal } from 'features/AuthByUsername';
+import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
+import { getIsOpenLoginModal, loginActions, LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 import styles from './Navbar.module.scss';
 
@@ -18,11 +19,14 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const dispatch = useDispatch();
 
   const isUserAuth = !!useSelector(getUserAuthData);
+  const isOpenLoginModal = useSelector(getIsOpenLoginModal);
 
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const onOpenLoginModal = useCallback(() => {
+    dispatch(loginActions.setIsOpenLoginModal(true));
+  }, []);
 
-  const onToggleModal = useCallback(() => {
-    setIsOpenModal(prev => !prev);
+  const onCloseLoginModal = useCallback(() => {
+    dispatch(loginActions.setIsOpenLoginModal(false));
   }, []);
 
   const onClickLogout = useCallback(() => {
@@ -39,13 +43,15 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             </Button>
             )
           : (
-            <Button variant="clear" onClick={onToggleModal}>
+            <Button variant="clear" onClick={onOpenLoginModal}>
               {t('login')}
             </Button>
             )
         }
-        <OptionalRender condition={isOpenModal}>
-          <LoginModal onClose={onToggleModal} />
+        <OptionalRender condition={isOpenLoginModal}>
+          <Suspense fallback={<Loader />}>
+            <LoginModal onClose={onCloseLoginModal} />
+          </Suspense>
         </OptionalRender>
       </div>
     </div>

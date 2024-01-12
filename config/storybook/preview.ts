@@ -45,7 +45,7 @@ const preview: Preview = {
       }
     }
   },
-  decorators: [withBrowserRouter, withI18next, withTheme, withStoreProvider]
+  decorators: [withBrowserRouter, withI18next, withTheme, withStoreProvider()]
 };
 
 export default preview;

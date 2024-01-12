@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { type User, userActions } from 'entities/User';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
+import { loginActions } from 'features/AuthByUsername';
 
 interface AuthData {
   username: string
@@ -15,6 +16,7 @@ export const loginByUsername = createAsyncThunk(
       const response = await axios.post<User>('http://localhost:8000/login', authData);
 
       thunkAPI.dispatch(userActions.setAuthData(response.data));
+      thunkAPI.dispatch(loginActions.setIsOpenLoginModal(false));
       localStorage.setItem(LocalStorageKeys.AUTH_USER, JSON.stringify(response.data));
       return response.data;
     } catch (err) {

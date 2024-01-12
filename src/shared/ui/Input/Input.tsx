@@ -1,6 +1,6 @@
 import React, { type FC, type InputHTMLAttributes, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { OptionalRender } from 'shared/ui/OptionalRender/OptionalRender';
+import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 
 import styles from './Input.module.scss';
 

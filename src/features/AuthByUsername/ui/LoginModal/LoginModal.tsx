@@ -7,10 +7,12 @@ interface LoginModalProps {
   onClose?: () => void
 }
 
-export const LoginModal: FC<LoginModalProps> = ({ onClose }) => {
+const LoginModal: FC<LoginModalProps> = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <LoginForm />
     </Modal>
   );
 };
+
+export default LoginModal;

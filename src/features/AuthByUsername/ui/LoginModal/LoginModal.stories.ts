@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { withStoreProvider } from 'shared/config/storybook/decorators/withStoreProvider';
 
-import { LoginModal } from './LoginModal';
+import LoginModal from './LoginModal';
 
 const meta = {
   title: 'features/LoginModal',
@@ -15,3 +16,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+export const WithError: Story = {
+  decorators: [
+    withStoreProvider({
+      login: {
+        isOpenLoginModal: true,
+        isError: true
+      }
+    })
+  ]
+};
+
+export const WithLoading: Story = {
+  decorators: [
+    withStoreProvider({
+      login: {
+        isOpenLoginModal: true,
+        isLoading: true
+      }
+    })
+  ]
+};

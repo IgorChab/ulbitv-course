@@ -6,7 +6,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { useSelector } from 'react-redux';
 import { Typography } from 'shared/ui/Typography/Typography';
-import { OptionalRender } from 'shared/ui/OptionalRender/OptionalRender';
+import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginActions } from '../../model/slice/loginSlice';
@@ -43,7 +43,7 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
     return () => {
       dispatch(loginActions.clearState());
     };
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className={classNames(styles.loginForm, {}, [className])}>
