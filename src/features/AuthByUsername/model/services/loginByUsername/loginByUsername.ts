@@ -9,19 +9,24 @@ interface Payload {
   onCloseLoginModal?: () => void
 }
 
-export const loginByUsername = createAsyncThunk(
+export const loginByUsername = createAsyncThunk<User, Payload>(
   'login/loginByUsername',
-  async (payload: Payload, thunkAPI) => {
+  async (payload, thunkAPI) => {
     const {
       username,
       password,
       onCloseLoginModal
     } = payload;
+
     try {
       const response = await axios.post<User>('http://localhost:8000/login', {
         username,
         password
       });
+
+      if (!response.data) {
+        throw new Error('Data is empty');
+      }
 
       thunkAPI.dispatch(userActions.setAuthData(response.data));
       localStorage.setItem(LocalStorageKeys.AUTH_USER, JSON.stringify(response.data));

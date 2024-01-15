@@ -9,11 +9,11 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
+import { getIsLoginError } from '../../model/selectors/getIsLoginError/getIsLoginError';
 import { loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import styles from './LoginForm.module.scss';
-import { getIsError } from '../../model/selectors/getIsError/getIsError';
-import { getIsLoading } from '../../model/selectors/getIsLoading/getIsLoading';
+import { getIsLoginLoading } from '../../model/selectors/getIsLoginLoading/getIsLoginLoading';
 
 interface LoginFormProps {
   className?: string
@@ -29,8 +29,8 @@ const LoginForm: FC<LoginFormProps> = ({ className, onCloseLoginModal }) => {
 
   const dispatch = useAppDispatch();
 
-  const isError = !!useSelector(getIsError);
-  const isLoading = !!useSelector(getIsLoading);
+  const isError = !!useSelector(getIsLoginError);
+  const isLoading = !!useSelector(getIsLoginLoading);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

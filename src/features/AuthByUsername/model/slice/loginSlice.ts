@@ -11,9 +11,7 @@ const initialState: LoginSchema = {
 const loginSlice = createSlice({
   name: 'login',
   initialState,
-  reducers: {
-    clearState: (state) => initialState
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(loginByUsername.fulfilled, (state, action) => {
       state.isError = false;
