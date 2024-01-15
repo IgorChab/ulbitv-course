@@ -8,6 +8,7 @@ type ButtonVariant = 'clear' | 'outline';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   variant?: ButtonVariant
+  onClick?: () => void | Promise<void>
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {

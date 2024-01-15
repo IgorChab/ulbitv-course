@@ -6,8 +6,8 @@ import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
 import { PageError } from 'widgets/PageError';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { userActions } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 import './styles/index.scss';
 

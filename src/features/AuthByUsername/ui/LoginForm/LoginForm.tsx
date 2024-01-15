@@ -3,11 +3,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { useSelector } from 'react-redux';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 import { getIsLoginError } from '../../model/selectors/getIsLoginError/getIsLoginError';
 import { loginReducer } from '../../model/slice/loginSlice';
@@ -17,14 +17,14 @@ import { getIsLoginLoading } from '../../model/selectors/getIsLoginLoading/getIs
 
 interface LoginFormProps {
   className?: string
-  onCloseLoginModal?: () => void
+  onSuccess?: () => void
 }
 
 const initialReducers = {
   login: loginReducer
 };
 
-const LoginForm: FC<LoginFormProps> = ({ className, onCloseLoginModal }) => {
+const LoginForm: FC<LoginFormProps> = ({ className, onSuccess }) => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -43,9 +43,12 @@ const LoginForm: FC<LoginFormProps> = ({ className, onCloseLoginModal }) => {
     setPassword(value);
   }, []);
 
-  const onClickLoginButton = useCallback(() => {
-    void dispatch(loginByUsername({ username, password, onCloseLoginModal }));
-  }, [dispatch, username, password]);
+  const onClickLoginButton = useCallback(async () => {
+    const result = await dispatch(loginByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess?.();
+    }
+  }, [dispatch, username, password, onSuccess]);
 
   return (
     <DynamicModuleLoader

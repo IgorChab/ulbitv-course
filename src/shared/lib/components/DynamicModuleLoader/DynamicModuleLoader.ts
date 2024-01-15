@@ -2,9 +2,9 @@ import { type FC, useEffect } from 'react';
 import type React from 'react';
 import { useStore } from 'react-redux';
 import { type StoreWithReducerManager } from 'app/providers/StoreProvider/config/store';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 import { type ReducerNames } from 'app/providers/StoreProvider/config/StateSchema';
 import { type Reducer } from '@reduxjs/toolkit';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 type ReducersMap = {
   [key in ReducerNames]?: Reducer

@@ -12,7 +12,7 @@ const LoginModal: FC<LoginModalProps> = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <Suspense fallback={<Loader />}>
-        <LoginFormAsync onCloseLoginModal={onClose} />
+        <LoginFormAsync onSuccess={onClose} />
       </Suspense>
     </Modal>
   );

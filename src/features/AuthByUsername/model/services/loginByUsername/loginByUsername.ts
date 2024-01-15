@@ -14,8 +14,7 @@ export const loginByUsername = createAsyncThunk<User, Payload>(
   async (payload, thunkAPI) => {
     const {
       username,
-      password,
-      onCloseLoginModal
+      password
     } = payload;
 
     try {
@@ -30,7 +29,7 @@ export const loginByUsername = createAsyncThunk<User, Payload>(
 
       thunkAPI.dispatch(userActions.setAuthData(response.data));
       localStorage.setItem(LocalStorageKeys.AUTH_USER, JSON.stringify(response.data));
-      onCloseLoginModal?.();
+
       return response.data;
     } catch (err) {
       return thunkAPI.rejectWithValue('error');
