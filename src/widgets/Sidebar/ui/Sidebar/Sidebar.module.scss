@@ -17,6 +17,10 @@
 }
 
 .collapseButton {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
   height: 250px;
   width: 32px;
   align-self: flex-end;
