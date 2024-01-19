@@ -1,0 +1,16 @@
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  fill: var(--primary-color);
+}
+
+.linkTitle {
+  color: var(--secondary-color);
+}
+
+.collapsed {
+  .linkTitle {
+    display: none;
+  }
+}

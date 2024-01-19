@@ -10,7 +10,7 @@ interface TypographyProps {
   children: React.ReactNode
 }
 
-export const Typography: FC<TypographyProps> = ({
+export const Typography: FC<TypographyProps> = React.memo(({
   className,
   component = 'h1',
   variant = 'title',
@@ -21,4 +21,4 @@ export const Typography: FC<TypographyProps> = ({
     { className: classNames('', {}, [className, styles[variant]]) },
     children
   );
-};
+});

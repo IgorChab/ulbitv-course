@@ -11,7 +11,7 @@ interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariant
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = React.memo((props) => {
   const {
     className,
     to,
@@ -28,4 +28,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
       {children}
     </Link>
   );
-};
+});

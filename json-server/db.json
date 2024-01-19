@@ -25,5 +25,15 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 35,
+    "gender": "male",
+    "currency": "RUB",
+    "country": "United States",
+    "city": "New York",
+    "username": "admin",
+    "avatar": "https://kartinki.pics/uploads/posts/2022-12/1670303214_18-kartinkin-net-p-adidas-kartinki-vkontakte-18.jpg"
+  }
 }

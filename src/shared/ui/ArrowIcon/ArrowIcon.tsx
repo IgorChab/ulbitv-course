@@ -9,7 +9,7 @@ interface ArrowIconProps extends React.SVGAttributes<SVGElement> {
   direction?: 'left' | 'right' | 'up' | 'down'
 }
 
-export const ArrowIcon: FC<ArrowIconProps> = ({
+export const ArrowIcon: FC<ArrowIconProps> = React.memo(({
   className,
   direction = 'down',
   ...svgProps
@@ -20,4 +20,4 @@ export const ArrowIcon: FC<ArrowIconProps> = ({
       {...svgProps}
     />
   );
-};
+});

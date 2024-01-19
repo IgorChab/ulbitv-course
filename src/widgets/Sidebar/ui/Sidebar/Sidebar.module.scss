@@ -16,13 +16,6 @@
   gap: 8px;
 }
 
-.linkItem {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  fill: var(--primary-color);
-}
-
 .collapseButton {
   height: 250px;
   width: 32px;
@@ -38,10 +31,6 @@
   gap: 20px;
 }
 
-.linkTitle {
-  color: var(--secondary-color);
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -51,9 +40,5 @@
 
   .switchers {
     flex-direction: column;
-  }
-
-  .linkTitle {
-    display: none;
   }
 }

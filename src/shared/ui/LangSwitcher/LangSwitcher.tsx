@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { type FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import i18n from 'shared/config/i18n/i18n';
 import { Button } from 'shared/ui/Button/Button';
@@ -9,9 +9,12 @@ interface LangSwitcherProps {
   className?: string
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = React.memo(({ className }) => {
+  const [language, setLanguage] = useState(i18n.language);
+
   const switchLanguage = () => {
     void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
+    setLanguage((language) => language === 'ru' ? 'en' : 'ru');
   };
 
   return (
@@ -20,7 +23,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       onClick={switchLanguage}
       variant="clear"
         >
-      {i18n.language === 'ru' ? 'EN' : 'RU'}
+      {language === 'ru' ? 'EN' : 'RU'}
     </Button>
   );
-};
+});

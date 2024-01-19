@@ -6,11 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 
-interface CounterProps {
-  className?: string
-}
-
-export const Counter: FC<CounterProps> = ({ className }) => {
+export const Counter: FC = () => {
   const dispatch = useDispatch();
   const counterValue = useSelector(getCounterValue);
 

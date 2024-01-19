@@ -4,9 +4,11 @@ import { type StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { type DeepPartial } from 'shared/types/DeepPartial';
 import { type ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername';
+import { profileReducer } from 'entities/Profile';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
-  login: loginReducer
+  login: loginReducer,
+  profile: profileReducer
 };
 
 export const withStoreProvider = (

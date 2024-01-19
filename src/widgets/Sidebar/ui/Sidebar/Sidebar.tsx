@@ -2,15 +2,12 @@ import React, { type FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import { ArrowIcon } from 'shared/ui/ArrowIcon/ArrowIcon';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import HomeIcon from 'shared/assets/icons/icon_home.svg';
-import InfoIcon from 'shared/assets/icons/icon_info.svg';
-import { AppPaths } from 'shared/config/routeConfig/routeConfig';
+import { SidebarItemsList } from 'widgets/Sidebar/model/sidebarItems';
 
 import styles from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string
@@ -18,8 +15,6 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const { t } = useTranslation();
 
   const collapseSidebar = () => {
     setIsCollapsed(prev => !prev);
@@ -31,14 +26,15 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       className={classNames(styles.sidebar, { [styles.collapsed]: isCollapsed }, [className])}
     >
       <div className={styles.linksContainer}>
-        <AppLink to={AppPaths.main} className={styles.linkItem}>
-          <HomeIcon />
-          <p className={styles.linkTitle}>{t('mainPage')}</p>
-        </AppLink>
-        <AppLink to={AppPaths.about} className={styles.linkItem}>
-          <InfoIcon />
-          <p className={styles.linkTitle}>{t('aboutPage')}</p>
-        </AppLink>
+        {
+          SidebarItemsList.map((item) => (
+            <SidebarItem
+              item={item}
+              isCollapsed={isCollapsed}
+              key={item.path}
+            />
+          ))
+         }
       </div>
       <Button
         data-testid="toggleSidebarButton"

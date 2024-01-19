@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void | Promise<void>
 }
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
+export const Button: FC<PropsWithChildren<ButtonProps>> = React.memo((props) => {
   const {
     className,
     children,
@@ -35,4 +35,4 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
       {children}
     </button>
   );
-};
+});
