@@ -8,7 +8,8 @@ import { type BuildOptions } from './types/config';
 
 export const buildPlugins = ({
   paths,
-  isDev
+  isDev,
+  mode
 }: BuildOptions): Array<webpack.WebpackPluginInstance | undefined> => {
   return [
     new webpack.ProgressPlugin(),
@@ -22,7 +23,9 @@ export const buildPlugins = ({
     new webpack.DefinePlugin({
       __IS_DEV__: isDev
     }),
-    new Dotenv(),
+    new Dotenv({
+      path: `./.env.${mode}`
+    }),
     isDev ? new webpack.HotModuleReplacementPlugin() : undefined,
     isDev ? new ReactRefreshWebpackPlugin() : undefined
   ];

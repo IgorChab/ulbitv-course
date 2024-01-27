@@ -2,4 +2,10 @@
 node_modules
 .idea
 .env
+.env.development
+.env.production
 .DS_Store
+build-storybook.log
+chromatic.log
+chromatic-build-*.xml
+chromatic-diagnostics.json
