@@ -5,7 +5,6 @@ import { createAppAsyncThunk } from 'shared/types/TypedCreateAsyncThunk';
 interface Payload {
   username: string
   password: string
-  onCloseLoginModal?: () => void
 }
 
 export const loginByUsername = createAppAsyncThunk<User, Payload, { rejectValue: string }>(
@@ -14,7 +13,9 @@ export const loginByUsername = createAppAsyncThunk<User, Payload, { rejectValue:
     const {
       dispatch,
       rejectWithValue,
-      extra: { api }
+      extra: {
+        api
+      }
     } = thunkAPI;
 
     const {
@@ -23,7 +24,7 @@ export const loginByUsername = createAppAsyncThunk<User, Payload, { rejectValue:
     } = payload;
 
     try {
-      const response = await api.post<User>('http://localhost:8000/login', {
+      const response = await api.post<User>('/login', {
         username,
         password
       });
