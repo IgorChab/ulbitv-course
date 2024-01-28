@@ -1,6 +1,6 @@
 import { type Currency, type Gender } from 'shared/constants/common';
 
-interface Profile {
+export interface Profile {
   firstName: string
   lastName: string
   age: number

@@ -1,10 +1,8 @@
 import React, { type FC } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from 'entities/Profile';
-import { useTranslation } from 'react-i18next';
+import { ProfileCard, profileReducer } from 'entities/Profile';
 
 const ProfilePage: FC = () => {
-  const { t } = useTranslation();
   return (
     <DynamicModuleLoader
       reducers={{
@@ -12,9 +10,7 @@ const ProfilePage: FC = () => {
       }}
       removeAfterUnmount
     >
-      <div>
-        {t('profile')}
-      </div>
+      <ProfileCard />
     </DynamicModuleLoader>
   );
 };

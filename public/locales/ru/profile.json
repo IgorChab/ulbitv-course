@@ -1,0 +1,13 @@
+{
+  "yourProfile": "Ваш профиль",
+  "editProfile": "Редактировать профиль",
+  "firstName": "Имя",
+  "lastName": "Фамилия",
+  "age": "Возраст",
+  "gender": "Пол",
+  "city": "Город",
+  "country": "Страна",
+  "username": "Имя пользователя",
+  "avatarUrl": "Ссылка на аватар",
+  "currency": "Валюта"
+}

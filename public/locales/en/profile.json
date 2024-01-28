@@ -1,0 +1,13 @@
+{
+  "yourProfile": "Your profile",
+  "editProfile": "Edit profile",
+  "firstName": "Name",
+  "lastName": "Surname",
+  "age": "Age",
+  "gender": "Gender",
+  "city": "City",
+  "country": "Country",
+  "username": "Username",
+  "avatarUrl": "Avatar URL",
+  "currency": "Currency",
+}
