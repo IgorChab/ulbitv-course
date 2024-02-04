@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type StateSchema } from 'app/providers/StoreProvider';
-import { type AxiosInstance } from 'axios';
+import { type StateSchema, type ThunkExtra } from 'app/providers/StoreProvider';
 
 export const createAppAsyncThunk = createAsyncThunk.withTypes<{
   state: StateSchema
-  extra: {
-    api: AxiosInstance
-  }
+  extra: ThunkExtra
 }>();

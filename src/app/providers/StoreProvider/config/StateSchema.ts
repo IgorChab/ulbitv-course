@@ -2,6 +2,7 @@ import { type CounterSchema } from 'entities/Counter';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'entities/Profile';
+import { type AxiosInstance } from 'axios';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -13,3 +14,7 @@ export interface StateSchema {
 }
 
 export type ReducerNames = keyof StateSchema;
+
+export interface ThunkExtra {
+  api: AxiosInstance
+}

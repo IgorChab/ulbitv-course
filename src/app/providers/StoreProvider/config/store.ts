@@ -1,4 +1,9 @@
-import { configureStore, type EnhancedStore, type ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  type EnhancedStore,
+  type Reducer,
+  type ReducersMapObject
+} from '@reduxjs/toolkit';
 import { axiosClient } from 'shared/api/axiosClient';
 
 import { createReducerManager } from './reducerManager';
@@ -15,7 +20,7 @@ export const createReduxStore = (
   const reducerManager = createReducerManager(initialReducers);
 
   const store = configureStore({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<StateSchema>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: getDefaultMiddleware => getDefaultMiddleware({

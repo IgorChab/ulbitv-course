@@ -27,6 +27,10 @@ export const profileSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     });
+    builder.addCase(fetchProfileDetails.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = undefined;
+    });
   }
 });
 

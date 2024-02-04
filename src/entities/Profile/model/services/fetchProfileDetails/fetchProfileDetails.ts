@@ -4,7 +4,7 @@ import { apiRoutes } from 'shared/api/apiRoutes';
 
 import { type Profile } from '../../types/ProfileSchema';
 
-export const fetchProfileDetails = createAppAsyncThunk<Profile, never, { rejectValue: string }>(
+export const fetchProfileDetails = createAppAsyncThunk<Profile, undefined, { rejectValue: string }>(
   'profile/fetchProfileDetails',
   async (_, thunkAPI) => {
     const {

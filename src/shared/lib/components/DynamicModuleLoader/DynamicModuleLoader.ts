@@ -1,16 +1,13 @@
 import { type FC, useEffect } from 'react';
 import type React from 'react';
 import { useStore } from 'react-redux';
-import { type StoreWithReducerManager } from 'app/providers/StoreProvider/config/store';
-import { type ReducerNames } from 'app/providers/StoreProvider/config/StateSchema';
 import { type Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { type ReducerNames, type StoreWithReducerManager } from 'app/providers/StoreProvider';
 
 type ReducersMap = {
   [key in ReducerNames]?: Reducer
 };
-
-type ReducersListEntries = [ReducerNames, Reducer];
 
 interface DynamicModuleLoaderProps {
   children: React.ReactNode
@@ -30,14 +27,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   const reducersList = Object.entries(reducers);
 
   useEffect(() => {
-    reducersList.forEach(([name, reducer]: ReducersListEntries) => {
-      store.reducerManager.add(name, reducer);
+    reducersList.forEach(([name, reducer]) => {
+      store.reducerManager.add(name as ReducerNames, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
     return () => {
       if (removeAfterUnmount) {
-        reducersList.forEach(([name, reducer]: ReducersListEntries) => {
-          store.reducerManager.remove(name);
+        reducersList.forEach(([name]) => {
+          store.reducerManager.remove(name as ReducerNames);
           dispatch({ type: `@DESTROY ${name} reducer` });
         });
       }
