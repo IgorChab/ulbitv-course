@@ -8,6 +8,7 @@ export interface SidebarItemType {
   path: string
   text: string // need pass localization key
   Icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+  authOnly?: boolean
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
@@ -24,6 +25,7 @@ export const SidebarItemsList: SidebarItemType[] = [
   {
     path: AppPaths.profile,
     Icon: ProfileIcon,
-    text: 'profile'
+    text: 'profile',
+    authOnly: true
   }
 ];
