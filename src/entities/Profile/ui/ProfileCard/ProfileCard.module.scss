@@ -1,7 +1,35 @@
+.container {
+  background-color: var(--inverted-bg-color);
+  margin: 0 auto;
+  width: 780px;
+  border-radius: 32px;
+  padding: 24px;
+}
+
+.loader {
+  margin: 0 auto;
+}
+
+.error {
+  color: var(--error-color);
+  margin: 0 auto;
+}
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+}
+
+.leftButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rightButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .profileData {

@@ -10,4 +10,8 @@
   "username": "Username",
   "avatarUrl": "Avatar URL",
   "currency": "Currency",
+  "profileError": "There was an error loading profile",
+  "cancel": "Cancel",
+  "save": "Save",
+  "ageMustBeANumber": "Age must be a number"
 }

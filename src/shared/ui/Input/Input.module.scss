@@ -3,6 +3,11 @@
   gap: 10px;
 }
 
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .label {
   flex-shrink: 0;
 }
@@ -28,6 +33,11 @@
   left: 0;
   background-color: var(--primary-color);
   animation: 0.7s blink forwards infinite;
+}
+
+.error {
+  color: var(--error-color);
+  margin-top: 5px;
 }
 
 @keyframes blink {

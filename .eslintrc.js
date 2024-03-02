@@ -64,7 +64,8 @@ module.exports = {
         "i18next/no-literal-string": "error",
         "max-len": ['error', {
             code: 100,
-            ignoreComments: true
+            ignoreComments: true,
+            ignoreUrls: true,
         }],
         "react/display-name": "off",
         "react-hooks/rules-of-hooks": "error",

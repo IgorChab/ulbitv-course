@@ -8,17 +8,22 @@ interface TypographyProps {
   variant?: 'title' | 'subtitle' | 'small'
   component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
   children: React.ReactNode
+  textAlign?: 'left' | 'center' | 'right'
 }
 
 export const Typography: FC<TypographyProps> = React.memo(({
   className,
   component = 'h1',
   variant = 'title',
-  children
+  children,
+  textAlign = 'left'
 }) => {
   return React.createElement(
     component,
-    { className: classNames('', {}, [className, styles[variant]]) },
+    {
+      className: classNames('', {}, [className, styles[variant]]),
+      style: { textAlign }
+    },
     children
   );
 });

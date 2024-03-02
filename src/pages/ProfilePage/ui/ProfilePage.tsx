@@ -1,8 +1,19 @@
-import React, { type FC } from 'react';
+import React, { type FC, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfileCard, profileReducer } from 'entities/Profile';
+import {
+  ProfileCard,
+  profileReducer,
+  fetchProfileDetails
+} from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 const ProfilePage: FC = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    void dispatch(fetchProfileDetails());
+  }, []);
+
   return (
     <DynamicModuleLoader
       reducers={{

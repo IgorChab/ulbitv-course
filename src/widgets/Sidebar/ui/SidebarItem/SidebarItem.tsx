@@ -19,6 +19,7 @@ export const SidebarItem: FC<SidebarItemProps> = React.memo(({ item, isCollapsed
   } = item;
 
   const { t } = useTranslation();
+
   return (
     <AppLink to={path} className={classNames(styles.linkItem, { [styles.collapsed]: isCollapsed })}>
       <Icon />

@@ -1,6 +1,7 @@
-import React, { type FC, type InputHTMLAttributes, useRef, useState } from 'react';
+import React, { type InputHTMLAttributes, useState, forwardRef, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
+import { Typography } from 'shared/ui/Typography/Typography';
 
 import styles from './Input.module.scss';
 
@@ -10,21 +11,23 @@ interface InputProps extends InputHTMLProps {
   className?: string
   label?: string
   onChange?: (value: string) => void
+  errorText?: string
 }
 
 const MONOSPACE_FONT_CHAR_RATIO = 0.6;
 
-const InputBase: FC<InputProps> = ({
+export const Input = memo(forwardRef<HTMLInputElement, InputProps>(({
   className,
   label,
   type = 'text',
   onChange,
   autoFocus,
+  errorText,
+  onBlur,
   ...otherProps
-}) => {
+}, ref) => {
   const [caretPosition, setCaretPosition] = useState(0);
   const [isFocused, setIsFocused] = useState(!!autoFocus);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.value);
@@ -34,8 +37,9 @@ const InputBase: FC<InputProps> = ({
     setIsFocused(true);
   };
 
-  const onBlur = () => {
+  const onBlurInput = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(false);
+    onBlur && onBlur(e);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,24 +57,30 @@ const InputBase: FC<InputProps> = ({
           {`${label}>`}
         </p>
       </OptionalRender>
-      <div className={styles.caretWrapper}>
-        <input
-          ref={inputRef}
-          className={styles.input}
-          type={type}
-          onChange={onChangeHandler}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onSelect={onSelect}
-          autoFocus={autoFocus}
-          {...otherProps}
-        />
-        <OptionalRender condition={isFocused}>
-          <span className={styles.caret} style={{ left: `${caretPosition}rem` }} />
+      <div className={styles.inputWrapper}>
+        <div className={styles.caretWrapper}>
+          <input
+            ref={ref}
+            className={styles.input}
+            type={type}
+            onChange={onChangeHandler}
+            onFocus={onFocus}
+            onBlur={onBlurInput}
+            onSelect={onSelect}
+            autoFocus={autoFocus}
+            autoComplete="off"
+            {...otherProps}
+          />
+          <OptionalRender condition={isFocused}>
+            <span className={styles.caret} style={{ left: `${caretPosition}rem` }} />
+          </OptionalRender>
+        </div>
+        <OptionalRender condition={!!errorText}>
+          <Typography variant="small" className={styles.error}>
+            {errorText}
+          </Typography>
         </OptionalRender>
       </div>
     </div>
   );
-};
-
-export const Input = React.memo(InputBase);
+}));
