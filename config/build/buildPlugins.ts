@@ -21,7 +21,8 @@ export const buildPlugins = ({
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: isDev
+      __IS_DEV__: isDev,
+      __PROJECT__: JSON.stringify('frontend')
     }),
     new Dotenv({
       path: `./.env.${mode}`

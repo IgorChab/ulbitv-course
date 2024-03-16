@@ -11,7 +11,9 @@ const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    void dispatch(fetchProfileDetails());
+    if (__PROJECT__ !== 'storybook') {
+      void dispatch(fetchProfileDetails());
+    }
   }, []);
 
   return (

@@ -13,6 +13,7 @@ import { useForm, Controller, type SubmitHandler } from 'react-hook-form';
 import z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 
 import styles from './ProfileCard.module.scss';
 
@@ -112,17 +113,19 @@ export const ProfileCard: FC = () => {
         </div>
         <Avatar src={profileData?.avatar}/>
         <div className={styles.rightButtonWrapper}>
-          {canEditProfile && isEditing
-            ? (
-              <Button variant="outline" onClick={onSave}>
-                {t('save')}
-              </Button>
-            )
-            : (
-              <Button variant="outline" onClick={onEdit}>
-                {t('editProfile')}
-              </Button>
-          )}
+          <OptionalRender condition={canEditProfile}>
+            {isEditing
+              ? (
+                <Button variant="outline" onClick={onSave}>
+                  {t('save')}
+                </Button>
+              )
+              : (
+                <Button variant="outline" onClick={onEdit}>
+                  {t('editProfile')}
+                </Button>
+            )}
+          </OptionalRender>
         </div>
       </div>
       <div className={styles.profileData}>
