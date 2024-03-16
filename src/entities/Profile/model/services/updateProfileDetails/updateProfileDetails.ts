@@ -13,9 +13,13 @@ export const updateProfileDetails = createAppAsyncThunk<Profile, Profile, { reje
     try {
       const response = await api.put('/profile', data);
 
+      if (!response.data) {
+        throw new Error();
+      }
+
       return response.data;
     } catch (e) {
-      rejectWithValue('error');
+      return rejectWithValue('error');
     }
   }
 );

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { withStoreProvider } from 'shared/config/storybook/decorators/withStoreProvider';
-import { profileMock } from 'shared/config/storybook/__mocks__/profile';
+import { profileMock } from 'shared/constants/__mocks__/profile';
 
 import { ProfileCard } from './ProfileCard';
 

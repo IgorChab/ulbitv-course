@@ -14,6 +14,10 @@ export const fetchProfileDetails = createAppAsyncThunk<Profile, undefined, { rej
     try {
       const response = await api.get<Profile>(apiRoutes.profile);
 
+      if (!response.data) {
+        throw new Error();
+      }
+
       return response.data;
     } catch (err) {
       return rejectWithValue('error');
