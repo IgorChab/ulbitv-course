@@ -10,8 +10,8 @@ export const buildPlugins = ({
   paths,
   isDev,
   mode
-}: BuildOptions): Array<webpack.WebpackPluginInstance | undefined> => {
-  return [
+}: BuildOptions): webpack.WebpackPluginInstance[] => {
+  const plugins = [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: paths.html
@@ -26,8 +26,15 @@ export const buildPlugins = ({
     }),
     new Dotenv({
       path: `./.env.${mode}`
-    }),
-    isDev ? new webpack.HotModuleReplacementPlugin() : undefined,
-    isDev ? new ReactRefreshWebpackPlugin() : undefined
+    })
   ];
+
+  if (isDev) {
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new ReactRefreshWebpackPlugin()
+    );
+  }
+
+  return plugins;
 };
