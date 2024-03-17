@@ -4,12 +4,14 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import ThemeIcon from 'shared/assets/icons/icon_theme.svg';
 import { Button } from 'shared/ui/Button/Button';
 
+import styles from './ThemeSwitcher.module.scss';
+
 interface ThemeSwitcherProps {
   className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = React.memo(({ className }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
     <Button
@@ -17,9 +19,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = React.memo(({ className }) 
       onClick={toggleTheme}
       variant="clear"
     >
-      <ThemeIcon
-        fill={theme === 'dark' ? 'black' : 'white'}
-      />
+      <ThemeIcon className={styles.themeIcon} />
     </Button>
   );
 });
