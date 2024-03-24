@@ -18,7 +18,8 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
     output: {
       filename: 'bundle.js',
       path: paths.build,
-      clean: true
+      clean: true,
+      publicPath: '/'
     },
     module: {
       rules: buildLoaders(options)
