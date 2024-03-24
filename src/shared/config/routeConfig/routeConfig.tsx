@@ -18,7 +18,7 @@ export const AppPaths: Record<AppRoute, string> = {
   [AppRoute.NOT_FOUND]: '*'
 };
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean
 };
 
