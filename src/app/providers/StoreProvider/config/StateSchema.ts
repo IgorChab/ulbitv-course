@@ -3,6 +3,7 @@ import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'entities/Profile';
 import { type AxiosInstance } from 'axios';
+import { type ArticleSchema } from 'entities/Article';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -11,6 +12,7 @@ export interface StateSchema {
   // Async reducers
   login?: LoginSchema
   profile?: ProfileSchema
+  article?: ArticleSchema
 }
 
 export type ReducerNames = keyof StateSchema;
