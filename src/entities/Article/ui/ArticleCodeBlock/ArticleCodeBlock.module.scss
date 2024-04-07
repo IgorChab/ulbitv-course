@@ -1,0 +1,13 @@
+.articleCodeBlock {
+  width: 100%;
+  background-color: var(--code-bg);
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  position: relative;
+}
+
+.copyIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

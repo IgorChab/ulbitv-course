@@ -1,4 +1,4 @@
-const enum ArticleBlockType {
+export const enum ArticleBlockType {
   TEXT = 'TEXT',
   IMAGE = 'IMAGE',
   CODE = 'CODE',
@@ -9,24 +9,24 @@ interface ArticleBlockBase {
   type: ArticleBlockType
 }
 
-interface ArticleTextBlock extends ArticleBlockBase {
+export interface IArticleTextBlock extends ArticleBlockBase {
   type: ArticleBlockType.TEXT
   title: string
   paragraphs: string[]
 }
 
-interface ArticleImageBlock extends ArticleBlockBase {
+export interface IArticleImageBlock extends ArticleBlockBase {
   type: ArticleBlockType.IMAGE
   src: string
   title: string
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase {
+export interface IArticleCodeBlock extends ArticleBlockBase {
   type: ArticleBlockType.CODE
   code: string
 }
 
-type ArticleBlocks = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
+export type ArticleBlock = IArticleTextBlock | IArticleImageBlock | IArticleCodeBlock;
 
 export interface Article {
   id: string
@@ -36,7 +36,7 @@ export interface Article {
   views: number
   createdAt: string
   type: string[]
-  blocks: ArticleBlocks
+  blocks: ArticleBlock[]
 }
 
 export interface ArticleSchema {

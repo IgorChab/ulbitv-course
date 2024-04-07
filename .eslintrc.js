@@ -72,6 +72,7 @@ module.exports = {
         "react-hooks/exhaustive-deps": "warn",
         "@typescript-eslint/no-explicit-any": "error",
         "react/prop-types": "off",
-        "@typescript-eslint/indent": "off"
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/switch-exhaustiveness-check": "error"
     }
 }
