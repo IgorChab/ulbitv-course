@@ -5,10 +5,12 @@ import { type DeepPartial } from 'shared/types/DeepPartial';
 import { type ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'entities/Profile';
+import { articleReducer } from 'entities/Article';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   login: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  article: articleReducer
 };
 
 export const withStoreProvider = (
