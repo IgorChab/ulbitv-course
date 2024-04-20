@@ -32,7 +32,7 @@ const renderBlock = (block: ArticleBlock) => {
 };
 
 export const ArticleDetails: FC<ArticleDetailsProps> = ({ className }) => {
-  const { t } = useTranslation('articleDetails');
+  const { t } = useTranslation();
   const isLoading = useSelector(articleSelectors.getIsLoading);
   const error = useSelector(articleSelectors.getArticleError);
   const article = useSelector(articleSelectors.getArticle);

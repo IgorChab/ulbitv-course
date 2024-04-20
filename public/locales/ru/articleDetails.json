@@ -1,3 +1,5 @@
 {
-  "articleNotFound": "Статья не найдена"
+  "articleNotFound": "Статья не найдена",
+  "noCommentsYet": "Пока нет комментариев",
+  "comments": "Комментарии"
 }

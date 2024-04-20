@@ -1,3 +1,5 @@
 {
-  "articleNotFound": "Article not found"
+  "articleNotFound": "Article not found",
+  "noCommentsYet": "No comments yet",
+  "comments": "Comments"
 }

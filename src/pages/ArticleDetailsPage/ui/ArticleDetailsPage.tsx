@@ -3,6 +3,25 @@ import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/D
 import { ArticleDetails, articleReducer, fetchArticleById } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Typography } from 'shared/ui/Typography/Typography';
+import { CommentsList } from 'entities/Comment';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import {
+  fetchCommentsByArticleId
+} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+  articleCommentsReducer,
+  commentsAdapterSelectors
+} from '../model/slice/articleCommentsSlice';
+import styles from './ArticleDetailsPage.module.scss';
+import { articleCommentsSelectors } from '../model/selectors/articleCommentsSelectors';
+
+const reducers = {
+  article: articleReducer,
+  articleComments: articleCommentsReducer
+};
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -11,14 +30,20 @@ interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams() as { id: string };
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('articleDetails');
+  const comments = useSelector(commentsAdapterSelectors.selectAll);
+  const isLoadingComments = useSelector(articleCommentsSelectors.isLoading);
 
   useEffect(() => {
     void dispatch(fetchArticleById(id));
+    void dispatch(fetchCommentsByArticleId(id));
   }, [id]);
 
   return (
-    <DynamicModuleLoader reducers={{ article: articleReducer }} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ArticleDetails />
+      <Typography className={styles.commentsTitle}>{t('comments')}</Typography>
+      <CommentsList comments={comments} isLoading={isLoadingComments} />
     </DynamicModuleLoader>
   );
 };

@@ -1,0 +1,16 @@
+.commentsListSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.commentSkeleton {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

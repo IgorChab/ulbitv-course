@@ -4,6 +4,7 @@ import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'entities/Profile';
 import { type AxiosInstance } from 'axios';
 import { type ArticleSchema } from 'entities/Article';
+import { type ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -13,6 +14,7 @@ export interface StateSchema {
   login?: LoginSchema
   profile?: ProfileSchema
   article?: ArticleSchema
+  articleComments?: ArticleCommentsSchema
 }
 
 export type ReducerNames = keyof StateSchema;
