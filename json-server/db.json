@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -91,15 +93,15 @@
     },
     {
       "id": "2",
-      "text": "some comment 2",
+      "text": "test",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
-      "id": "3",
-      "text": "some comment 3",
+      "userId": "1",
       "articleId": "1",
-      "userId": "1"
+      "text": "qwerty",
+      "id": "Hdvo7ml"
     }
   ],
   "users": [
@@ -108,18 +110,38 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://kartinki.pics/uploads/posts/2022-12/1670303214_18-kartinkin-net-p-adidas-kartinki-vkontakte-18.jpg"
+    },
+    {
+      "id": "2",
+      "username": "John Doe",
+      "password": "1234",
+      "avatar": "https://reactnativeunistyles.vercel.app/_astro/logo.CVzxHiHC.svg"
     }
   ],
-  "profile": {
-    "id": "1",
-    "firstName": "John",
-    "lastName": "Doe",
-    "age": 35,
-    "gender": "male",
-    "currency": "RUB",
-    "country": "United States",
-    "city": "New York",
-    "username": "admin",
-    "avatar": "https://kartinki.pics/uploads/posts/2022-12/1670303214_18-kartinkin-net-p-adidas-kartinki-vkontakte-18.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "age": 20,
+      "firstName": "Igor",
+      "lastName": "Chabanchuk",
+      "gender": "male",
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Saint Petersburg",
+      "username": "admin",
+      "avatar": "https://kartinki.pics/uploads/posts/2022-12/1670303214_18-kartinkin-net-p-adidas-kartinki-vkontakte-18.jpg"
+    },
+    {
+      "id": "2",
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 35,
+      "gender": "male",
+      "currency": "RUB",
+      "country": "United States",
+      "city": "New York",
+      "username": "admin",
+      "avatar": "https://reactnativeunistyles.vercel.app/_astro/logo.CVzxHiHC.svg"
+    }
+  ]
 }

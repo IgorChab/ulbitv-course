@@ -1,4 +1,4 @@
-import React, { type FC, useEffect } from 'react';
+import React, { type FC, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ArticleDetails, articleReducer, fetchArticleById } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -7,7 +7,9 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { CommentsList } from 'entities/Comment';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { AddCommentForm } from 'features/AddCommentForm';
 
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -39,10 +41,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     void dispatch(fetchCommentsByArticleId(id));
   }, [id]);
 
+  const onSendComment = useCallback((text: string) => {
+    void dispatch(addCommentForArticle(text));
+  }, []);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ArticleDetails />
       <Typography className={styles.commentsTitle}>{t('comments')}</Typography>
+      <AddCommentForm onSendComment={onSendComment} className={styles.commentsForm} />
       <CommentsList comments={comments} isLoading={isLoadingComments} />
     </DynamicModuleLoader>
   );

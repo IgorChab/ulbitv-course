@@ -1,18 +1,17 @@
 import { createAppAsyncThunk } from 'shared/types/TypedCreateAsyncThunk';
-import { apiRoutes } from 'shared/api/apiRoutes';
 
 import { type Profile } from '../../types/ProfileSchema';
 
-export const fetchProfileDetails = createAppAsyncThunk<Profile, undefined, { rejectValue: string }>(
+export const fetchProfileDetails = createAppAsyncThunk<Profile, string, { rejectValue: string }>(
   'profile/fetchProfileDetails',
-  async (_, thunkAPI) => {
+  async (profileId, thunkAPI) => {
     const {
       rejectWithValue,
       extra: { api }
     } = thunkAPI;
 
     try {
-      const response = await api.get<Profile>(apiRoutes.profile);
+      const response = await api.get<Profile>(`/profile/${profileId}`);
 
       if (!response.data) {
         throw new Error();

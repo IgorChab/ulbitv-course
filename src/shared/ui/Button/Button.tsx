@@ -16,17 +16,15 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = React.memo((props) => 
     className,
     children,
     onClick,
-    variant,
+    variant = 'clear',
     disabled,
     ...otherProps
   } = props;
 
-  const correctClassVariant = variant && styles[variant];
-
   return (
     <button
       className={classNames(
-        styles.button, { [styles.disabled]: !!disabled }, [className, correctClassVariant]
+        styles.button, { [styles.disabled]: !!disabled }, [className, styles[variant]]
       )}
       onClick={onClick}
       disabled={disabled}

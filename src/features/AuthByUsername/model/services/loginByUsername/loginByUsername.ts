@@ -1,7 +1,6 @@
 import { type User, userActions } from 'entities/User';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 import { createAppAsyncThunk } from 'shared/types/TypedCreateAsyncThunk';
-import { apiRoutes } from 'shared/api/apiRoutes';
 
 interface Payload {
   username: string
@@ -25,7 +24,7 @@ export const loginByUsername = createAppAsyncThunk<User, Payload, { rejectValue:
     } = payload;
 
     try {
-      const response = await api.post<User>(apiRoutes.login, {
+      const response = await api.post<User>('/login', {
         username,
         password
       });

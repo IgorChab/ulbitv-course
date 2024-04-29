@@ -3,6 +3,8 @@ import { type Comment } from 'entities/Comment';
 export const commentMock: Comment = {
   id: '1',
   text: 'some comment',
+  userId: '1',
+  articleId: '1',
   user: {
     id: '1',
     username: 'admin',

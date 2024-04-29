@@ -6,13 +6,15 @@ import {
   fetchProfileDetails
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useParams } from 'react-router-dom';
 
 const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>() as { id: string };
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchProfileDetails());
+      void dispatch(fetchProfileDetails(id));
     }
   }, []);
 

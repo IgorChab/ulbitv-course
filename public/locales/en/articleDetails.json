@@ -1,5 +1,7 @@
 {
   "articleNotFound": "Article not found",
   "noCommentsYet": "No comments yet",
-  "comments": "Comments"
+  "comments": "Comments",
+  "send": "Send",
+  "enterCommentText": "Enter comment text"
 }

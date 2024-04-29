@@ -41,4 +41,6 @@ export const commentsAdapterSelectors = commentsAdapter.getSelectors<StateSchema
   (state) => state.articleComments || commentsAdapter.getInitialState()
 );
 
-export const { reducer: articleCommentsReducer } = articleCommentsSlice;
+export const {
+  reducer: articleCommentsReducer
+} = articleCommentsSlice;

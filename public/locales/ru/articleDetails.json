@@ -1,5 +1,7 @@
 {
   "articleNotFound": "Статья не найдена",
   "noCommentsYet": "Пока нет комментариев",
-  "comments": "Комментарии"
+  "comments": "Комментарии",
+  "send": "Отправить",
+  "enterCommentText": "Введите текст комментария"
 }
