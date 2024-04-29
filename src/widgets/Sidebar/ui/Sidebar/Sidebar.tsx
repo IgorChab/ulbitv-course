@@ -4,20 +4,18 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button } from 'shared/ui/Button/Button';
 import { ArrowIcon } from 'shared/ui/ArrowIcon/ArrowIcon';
-import { SidebarItemsList } from 'widgets/Sidebar/model/sidebarItems';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
 
 import styles from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 interface SidebarProps {
   className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-  const isUserAuth = !!useSelector(getUserAuthData);
+  const sidebarItems = useSelector(getSidebarItems);
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -32,13 +30,12 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     >
       <div className={styles.linksContainer}>
         {
-          SidebarItemsList.map((item) => (
-            <OptionalRender condition={!(item.authOnly && !isUserAuth)} key={item.path}>
-              <SidebarItem
-                item={item}
-                isCollapsed={isCollapsed}
-              />
-            </OptionalRender>
+          sidebarItems.map((item) => (
+            <SidebarItem
+              key={item.path}
+              item={item}
+              isCollapsed={isCollapsed}
+            />
           ))
          }
       </div>

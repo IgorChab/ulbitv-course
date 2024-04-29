@@ -16,7 +16,7 @@ const ProfilePage: FC = () => {
     if (__PROJECT__ !== 'storybook') {
       void dispatch(fetchProfileDetails(id));
     }
-  }, []);
+  }, [id]);
 
   return (
     <DynamicModuleLoader
