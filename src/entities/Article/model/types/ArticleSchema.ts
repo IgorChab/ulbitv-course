@@ -1,3 +1,5 @@
+import { type User } from 'entities/User';
+
 export const enum ArticleBlockType {
   TEXT = 'TEXT',
   IMAGE = 'IMAGE',
@@ -35,8 +37,9 @@ export interface Article {
   img: string
   views: number
   createdAt: string
-  type: string[]
+  types: string[]
   blocks: ArticleBlock[]
+  user: User
 }
 
 export interface ArticleSchema {

@@ -1,6 +1,10 @@
 import React, { type FC, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ArticleDetails, articleReducer, fetchArticleById } from 'entities/Article';
+import {
+  ArticleDetails,
+  articleReducer,
+  fetchArticleById
+} from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Typography } from 'shared/ui/Typography/Typography';

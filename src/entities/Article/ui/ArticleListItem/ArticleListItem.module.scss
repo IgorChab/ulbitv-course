@@ -1,0 +1,54 @@
+.articleListItem {
+  background-color: var(--card-bg);
+  padding: 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.types {
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+}
+
+.image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.textBlock {
+  height: 250px;
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.views {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

@@ -8,7 +8,13 @@ export const articleMock: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: ['IT'],
+  types: ['IT', 'SCIENCE', 'POLITICS', 'JS'],
+  user: {
+    id: '1',
+    avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    username: 'admin',
+    password: '123'
+  },
   blocks: [
     {
       id: '1',

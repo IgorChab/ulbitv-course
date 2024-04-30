@@ -73,6 +73,7 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": "error",
         "react/prop-types": "off",
         "@typescript-eslint/indent": "off",
-        "@typescript-eslint/switch-exhaustiveness-check": "error"
+        "@typescript-eslint/switch-exhaustiveness-check": "error",
+        "multiline-ternary": "off"
     }
 }

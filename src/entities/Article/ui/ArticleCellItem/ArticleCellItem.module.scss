@@ -1,0 +1,58 @@
+.articleCellItem {
+  background-color: var(--card-bg);
+  padding: 20px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+}
+
+.date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+.articleCellItem:hover {
+  transform: scale(1.02);
+  transition: 0.2s;
+
+  .date {
+    display: block;
+  }
+}
+
+.typesWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.types {
+  width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.views {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title {
+  width: 170px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
