@@ -1,6 +1,6 @@
 import React, { type FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { articleMock } from 'shared/constants/__mocks__/article';
+import { type ArticlesView } from 'pages/ActiclesPage';
 
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { type Article } from '../../model/types/ArticleSchema';
@@ -12,16 +12,11 @@ import { ArticleCellItemSkeleton } from '../ArticleCellItem/ArticleCellItemSkele
 interface ArticlesListProps {
   className?: string
   articles: Article[]
-  view: 'cell' | 'list'
+  view: ArticlesView
   isLoading?: boolean
 }
 
-// TODO: получать из пропсов
-const articles = Array(10)
-  .fill(0)
-  .map((_, index) => ({ ...articleMock, id: String(index) }));
-
-const renderSkeletons = (view: 'cell' | 'list') => {
+const renderSkeletons = (view: ArticlesView) => {
   const arrayLength = view === 'cell' ? 10 : 3;
   return Array(arrayLength).fill(0).map((_, index) => {
     if (view === 'cell') {
@@ -39,6 +34,7 @@ const renderSkeletons = (view: 'cell' | 'list') => {
 export const ArticlesList: FC<ArticlesListProps> = ({
   className,
   view,
+  articles,
   isLoading
 }) => {
   if (isLoading) {

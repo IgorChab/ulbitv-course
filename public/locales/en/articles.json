@@ -1,4 +1,5 @@
 {
   "articlesPage": "Articles Page",
-  "readMore": "Read more"
+  "readMore": "Read more",
+  "articlesFetchError": "Articles fetch error"
 }

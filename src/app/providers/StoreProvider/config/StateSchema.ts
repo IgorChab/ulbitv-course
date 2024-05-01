@@ -5,6 +5,7 @@ import { type ProfileSchema } from 'entities/Profile';
 import { type AxiosInstance } from 'axios';
 import { type ArticleSchema } from 'entities/Article';
 import { type ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
+import { type ArticlesSchema } from 'pages/ActiclesPage';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -15,6 +16,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   article?: ArticleSchema
   articleComments?: ArticleCommentsSchema
+  articles?: ArticlesSchema
 }
 
 export type ReducerNames = keyof StateSchema;

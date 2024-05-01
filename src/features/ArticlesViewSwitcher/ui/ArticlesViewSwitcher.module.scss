@@ -1,0 +1,18 @@
+.articlesViewSwitcher {
+  display: flex;
+  align-items: center;
+  background-color: var(--inverted-bg-color);
+  width: fit-content;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  background-color: red;
+}
