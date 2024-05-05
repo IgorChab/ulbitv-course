@@ -53,6 +53,7 @@ module.exports = {
         "@typescript-eslint/indent": "off",
         "multiline-ternary": "off",
         "semi": "off",
+        "n/no-callback-literal": "off",
         "@typescript-eslint/promise-function-async": ["warn"],
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-indent": ["error", 2],

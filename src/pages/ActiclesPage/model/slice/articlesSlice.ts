@@ -30,7 +30,8 @@ const articlesSlice = createSlice({
     ids: [],
     entities: {},
     page: 1,
-    hasMore: true
+    hasMore: true,
+    _inited: false
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticlesView>) => {
@@ -38,6 +39,9 @@ const articlesSlice = createSlice({
     },
     setPaginationPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
+    },
+    setInited: (state, action: PayloadAction<boolean>) => {
+      state._inited = action.payload;
     }
   },
   extraReducers: builder => {

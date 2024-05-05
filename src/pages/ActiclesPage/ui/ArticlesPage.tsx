@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { ArticlesList } from 'entities/Article';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useSelector, useStore } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { type StoreWithReducerManager } from 'app/providers/StoreProvider';
 
 import {
   articlesActions,
@@ -35,8 +34,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const hasMore = useSelector(articlesSelectors.getHasMore);
   const page = useSelector(articlesSelectors.getArticlePage);
   const limit = useSelector(articlesSelectors.getArticlePageLimit);
-
-  const store = useStore() as StoreWithReducerManager;
+  const isReducerInited = useSelector(articlesSelectors.getReducerInited);
 
   const onSelectView = (view: ArticlesView) => {
     dispatch(articlesActions.setView(view));
@@ -44,13 +42,12 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   };
 
   useEffect(() => {
-    const isReducerInited = store.reducerManager.isReducerInited('articles');
-
     if (!isReducerInited) {
       void dispatch(fetchArticlesList({
         page: 1,
         limit
       }));
+      dispatch(articlesActions.setInited(true));
     }
   }, []);
 

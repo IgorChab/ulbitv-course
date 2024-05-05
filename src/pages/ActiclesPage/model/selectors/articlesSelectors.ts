@@ -6,6 +6,7 @@ import { getInitialView } from '../slice/articlesSlice';
 const isLoading = (state: StateSchema) => state.articles?.isLoading;
 const getArticlesError = (state: StateSchema) => state.articles?.error;
 const getArticlesView = (state: StateSchema) => state.articles?.view || getInitialView();
+const getReducerInited = (state: StateSchema) => state.articles?._inited || false;
 const getArticlePage = (state: StateSchema) => state.articles?.page || 1;
 const getHasMore = (state: StateSchema) => state.articles?.hasMore;
 const getArticlePageLimit = createSelector(getArticlesView, (view) => (
@@ -18,5 +19,6 @@ export const articlesSelectors = {
   getArticlesView,
   getArticlePage,
   getArticlePageLimit,
-  getHasMore
+  getHasMore,
+  getReducerInited
 };

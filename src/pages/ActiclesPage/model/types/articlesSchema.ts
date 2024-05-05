@@ -9,4 +9,5 @@ export interface ArticlesSchema extends EntityState<Article, string> {
   view: ArticlesView
   page: number
   hasMore: boolean
+  _inited: boolean
 }
