@@ -10,26 +10,34 @@ const articlesAdapter = createEntityAdapter<Article, string>({
   selectId: (article) => article.id
 });
 
+export const getInitialView = () => {
+  const initialView = localStorage
+    .getItem(LocalStorageKeys.ARTICLES_VIEW) as ArticlesView | null;
+
+  if (initialView) {
+    return initialView;
+  }
+
+  return 'cell';
+};
+
 const articlesSlice = createSlice({
   name: 'articles',
   initialState: articlesAdapter.getInitialState<ArticlesSchema>({
     error: undefined,
     isLoading: false,
-    view: 'cell',
+    view: getInitialView(),
     ids: [],
-    entities: {}
+    entities: {},
+    page: 1,
+    hasMore: true
   }),
   reducers: {
     setView: (state, action: PayloadAction<ArticlesView>) => {
       state.view = action.payload;
     },
-    setInitialView: (state) => {
-      const initialView = localStorage
-        .getItem(LocalStorageKeys.ARTICLES_VIEW) as ArticlesView | null;
-
-      if (initialView) {
-        state.view = initialView;
-      }
+    setPaginationPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
     }
   },
   extraReducers: builder => {
@@ -40,7 +48,8 @@ const articlesSlice = createSlice({
     builder.addCase(fetchArticlesList.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = undefined;
-      articlesAdapter.setAll(state, action.payload);
+      state.hasMore = action.payload.length > 0;
+      articlesAdapter.addMany(state, action.payload);
     });
     builder.addCase(fetchArticlesList.rejected, (state, action) => {
       state.isLoading = false;

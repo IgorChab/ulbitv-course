@@ -29,8 +29,10 @@ export const ArticlesViewSwitcher: FC<ArticlesViewSwitcherProps> = ({
   onSelectView,
   view
 }) => {
-  const onClick = (view: ArticlesView) => () => {
-    onSelectView(view);
+  const onClick = (selectedView: ArticlesView) => {
+    if (selectedView !== view) {
+      onSelectView(selectedView);
+    }
   };
 
   return (
@@ -38,7 +40,7 @@ export const ArticlesViewSwitcher: FC<ArticlesViewSwitcherProps> = ({
       {viewTypes.map((viewType) => (
         <Button
           className={classNames(styles.button, { [styles.selected]: viewType.view === view })}
-          onClick={onClick(viewType.view)}
+          onClick={() => { onClick(viewType.view); }}
           key={viewType.view}
         >
           {viewType.Icon}

@@ -43,16 +43,21 @@ module.exports = {
         "react-hooks"
     ],
     "rules": {
-        "react/jsx-indent": ["error", 2],
-        "react/jsx-indent-props": ["error", 2],
-        "@typescript-eslint/promise-function-async": ["warn"],
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "semi": "off",
-        "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/naming-convention": "off",
         "react/react-in-jsx-scope": "off",
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "@typescript-eslint/indent": "off",
+        "multiline-ternary": "off",
+        "semi": "off",
+        "@typescript-eslint/promise-function-async": ["warn"],
+        "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-indent": ["error", 2],
+        "react/jsx-indent-props": ["error", 2],
+        "@typescript-eslint/semi": ["error", "always"],
         "import/order": ["error", {
             "groups": [
                 "internal",
@@ -67,13 +72,8 @@ module.exports = {
             ignoreComments: true,
             ignoreUrls: true,
         }],
-        "react/display-name": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
         "@typescript-eslint/no-explicit-any": "error",
-        "react/prop-types": "off",
-        "@typescript-eslint/indent": "off",
         "@typescript-eslint/switch-exhaustiveness-check": "error",
-        "multiline-ternary": "off"
     }
 }

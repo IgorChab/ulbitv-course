@@ -1,9 +1,18 @@
 import { createAppAsyncThunk } from 'shared/types/TypedCreateAsyncThunk';
 import { type Article } from 'entities/Article';
 
-export const fetchArticlesList = createAppAsyncThunk<Article[], undefined, { rejectValue: string }>(
+interface FetchArticlesListArgs {
+  page: number
+  limit: number
+}
+
+export const fetchArticlesList = createAppAsyncThunk<
+  Article[],
+  FetchArticlesListArgs,
+  { rejectValue: string }
+>(
   'articles/fetchArticlesList',
-  async (_, thunkAPI) => {
+  async ({ page, limit }, thunkAPI) => {
     const {
       rejectWithValue,
       extra: { api }
@@ -12,7 +21,9 @@ export const fetchArticlesList = createAppAsyncThunk<Article[], undefined, { rej
     try {
       const response = await api.get<Article[]>('/articles', {
         params: {
-          _expand: 'user'
+          _expand: 'user',
+          _page: page,
+          _limit: limit
         }
       });
 

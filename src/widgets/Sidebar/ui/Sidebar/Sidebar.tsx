@@ -24,7 +24,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   };
 
   return (
-    <div
+    <nav
       data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: isCollapsed }, [className])}
     >
@@ -53,6 +53,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         <ThemeSwitcher />
         <LangSwitcher />
       </div>
-    </div>
+    </nav>
   );
 };

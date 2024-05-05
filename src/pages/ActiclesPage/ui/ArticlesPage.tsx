@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
+import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
 
 import {
   articlesActions,
@@ -30,6 +31,9 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const isLoading = useSelector(articlesSelectors.isLoading);
   const error = useSelector(articlesSelectors.getArticlesError);
   const view = useSelector(articlesSelectors.getArticlesView);
+  const hasMore = useSelector(articlesSelectors.getHasMore);
+  const page = useSelector(articlesSelectors.getArticlePage);
+  const limit = useSelector(articlesSelectors.getArticlePageLimit);
 
   const onSelectView = (view: ArticlesView) => {
     dispatch(articlesActions.setView(view));
@@ -37,9 +41,23 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   };
 
   useEffect(() => {
-    void dispatch(fetchArticlesList());
-    dispatch(articlesActions.setInitialView());
+    void dispatch(fetchArticlesList({
+      page: 1,
+      limit
+    }));
   }, []);
+
+  const onReachEnd = () => {
+    if (hasMore && !isLoading) {
+      void dispatch(fetchArticlesList({
+        page: page + 1,
+        limit
+      }));
+      dispatch(articlesActions.setPaginationPage(page + 1));
+    }
+  };
+
+  const { targetNodeCallback } = useInfiniteScroll(onReachEnd);
 
   if (error) {
     return (
@@ -60,6 +78,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
           isLoading={isLoading}
         />
       </div>
+      <div ref={targetNodeCallback} />
     </DynamicModuleLoader>
   );
 };

@@ -37,13 +37,6 @@ export const ArticlesList: FC<ArticlesListProps> = ({
   articles,
   isLoading
 }) => {
-  if (isLoading) {
-    return (
-      <div className={classNames(styles.articlesList, {}, [className])}>
-        {renderSkeletons(view)}
-      </div>
-    );
-  }
   return (
     <div className={classNames(styles.articlesList, {}, [className])}>
       {view === 'cell' ? (
@@ -55,6 +48,7 @@ export const ArticlesList: FC<ArticlesListProps> = ({
           <ArticleListItem article={article} key={article.id} />
         ))
       )}
+      {isLoading && renderSkeletons(view)}
     </div>
   );
 };

@@ -34,7 +34,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   }, []);
 
   return (
-    <div className={classNames(styles.navbar, {}, [className])}>
+    <header className={classNames(styles.navbar, {}, [className])}>
       <div className={styles.links}>
         {isUserAuth
           ? (
@@ -52,6 +52,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           <LoginModal onClose={onCloseLoginModal} />
         </OptionalRender>
       </div>
-    </div>
+    </header>
   );
 };
