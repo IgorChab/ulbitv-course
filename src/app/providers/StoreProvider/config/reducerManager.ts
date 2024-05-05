@@ -20,6 +20,8 @@ export function createReducerManager (initialReducers?: ReducersMapObject<StateS
   return {
     getReducerMap: () => reducers,
 
+    isReducerInited: (reducerName: ReducerNames) => !!reducers[reducerName],
+
     reduce: (
       state: StateFromReducersMapObject<ReducersMapObject<StateSchema>>,
       action: UnknownAction
