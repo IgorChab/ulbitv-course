@@ -9,6 +9,7 @@ void i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'ru',
+    load: 'languageOnly',
     debug: __IS_DEV__,
     interpolation: {
       escapeValue: false

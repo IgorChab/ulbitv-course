@@ -25,7 +25,9 @@ const ProfilePage: FC = () => {
       }}
       removeAfterUnmount
     >
-      <ProfileCard />
+      <div style={{ padding: '20px' }}>
+        <ProfileCard />
+      </div>
     </DynamicModuleLoader>
   );
 };

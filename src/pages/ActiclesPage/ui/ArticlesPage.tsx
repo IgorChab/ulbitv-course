@@ -1,5 +1,4 @@
-import React, { type FC, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, { type FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticlesList } from 'entities/Article';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -8,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
+import { ScrollableContainer } from 'widgets/ScrollableContainer';
 
 import {
   articlesActions,
@@ -51,7 +50,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     }
   }, []);
 
-  const onReachEnd = () => {
+  const onScrollEnd = useCallback(() => {
     if (hasMore && !isLoading) {
       void dispatch(fetchArticlesList({
         page: page + 1,
@@ -59,9 +58,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       }));
       dispatch(articlesActions.setPaginationPage(page + 1));
     }
-  };
-
-  const { targetNodeCallback } = useInfiniteScroll(onReachEnd);
+  }, [hasMore, isLoading, page, limit]);
 
   if (error) {
     return (
@@ -71,7 +68,11 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={{ articles: articlesReducer }} removeAfterUnmount={false}>
-      <div className={classNames('', {}, [className])}>
+      <ScrollableContainer
+        className={className}
+        onScrollEnd={onScrollEnd}
+        isNeedSaveScrollOffset
+      >
         <div className={styles.header}>
           {t('articlesPage')}
           <ArticlesViewSwitcher onSelectView={onSelectView} view={view} />
@@ -81,8 +82,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
           articles={articles}
           isLoading={isLoading}
         />
-      </div>
-      <div ref={targetNodeCallback} />
+      </ScrollableContainer>
     </DynamicModuleLoader>
   );
 };

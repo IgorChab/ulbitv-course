@@ -12,6 +12,7 @@ import { CommentsList } from 'entities/Comment';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { ScrollableContainer } from 'widgets/ScrollableContainer';
 
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import {
@@ -51,10 +52,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ArticleDetails />
-      <Typography className={styles.commentsTitle}>{t('comments')}</Typography>
-      <AddCommentForm onSendComment={onSendComment} className={styles.commentsForm} />
-      <CommentsList comments={comments} isLoading={isLoadingComments} />
+      <ScrollableContainer isNeedSaveScrollOffset>
+        <ArticleDetails />
+        <Typography className={styles.commentsTitle}>{t('comments')}</Typography>
+        <AddCommentForm onSendComment={onSendComment} className={styles.commentsForm} />
+        <CommentsList comments={comments} isLoading={isLoadingComments} />
+      </ScrollableContainer>
     </DynamicModuleLoader>
   );
 };

@@ -3,17 +3,17 @@ import { useCallback, useRef } from 'react';
 type RootNode = IntersectionObserverInit['root'];
 type TargetNode = Element | null;
 
-export const useInfiniteScroll = (callback: () => void) => {
+export const useInfiniteScroll = (callback?: () => void) => {
   const scrollAreaRef = useRef<RootNode>(null);
   const targetRef = useRef<TargetNode>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const observe = useCallback(() => {
-    if (!targetRef.current) return;
+    if (!targetRef.current || !scrollAreaRef.current) return;
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        callback();
+        callback && callback();
       }
     }, {
       root: scrollAreaRef.current || document.querySelector('.pageWrapper'),

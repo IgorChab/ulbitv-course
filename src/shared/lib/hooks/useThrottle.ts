@@ -8,10 +8,10 @@ export const useThrottle = (callback: (...args: any[]) => void, delay: number) =
     if (!throttleRef.current) {
       callback(...args);
       throttleRef.current = true;
-    }
 
-    setTimeout(() => {
-      throttleRef.current = false;
-    }, delay);
+      setTimeout(() => {
+        throttleRef.current = false;
+      }, delay);
+    }
   }, [callback, delay]);
 };

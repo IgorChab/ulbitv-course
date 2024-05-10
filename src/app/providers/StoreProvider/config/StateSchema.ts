@@ -6,10 +6,12 @@ import { type AxiosInstance } from 'axios';
 import { type ArticleSchema } from 'entities/Article';
 import { type ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesSchema } from 'pages/ActiclesPage';
+import { type UISchema } from 'features/UI';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  ui: UISchema
 
   // Async reducers
   login?: LoginSchema

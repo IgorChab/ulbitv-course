@@ -6,7 +6,7 @@ const MainPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div style={{ padding: '20px' }}>
       {t('mainPage')}
       <Counter />
     </div>
