@@ -5,10 +5,11 @@ import { Typography } from 'shared/ui/Typography/Typography';
 import { Button } from 'shared/ui/Button/Button';
 import EyeIcon from 'shared/assets/icons/icon_eye_outlined.svg';
 import { useTranslation } from 'react-i18next';
-import { ArticleTextBlock } from 'entities/Article/ui/ArticleTextBlock/ArticleTextBlock';
 import { useNavigate } from 'react-router-dom';
 import { AppPaths } from 'shared/config/routeConfig/routeConfig';
+import { Card } from 'shared/ui/Card/Card';
 
+import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import styles from './ArticleListItem.module.scss';
 import { type Article, type IArticleTextBlock } from '../../model/types/ArticleSchema';
 
@@ -41,7 +42,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article }
   };
 
   return (
-    <div className={classNames(styles.articleListItem, {}, [className])}>
+    <Card className={classNames(styles.articleListItem, {}, [className])}>
       <div className={styles.header}>
         <div className={styles.user}>
           <Avatar size={30} src={user.avatar} />
@@ -64,6 +65,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article }
           <EyeIcon />
         </div>
       </div>
-    </div>
+    </Card>
   );
 };

@@ -1,6 +1,7 @@
 import React, { type FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Card } from 'shared/ui/Card/Card';
 
 import styles from './ArticleListItem.module.scss';
 
@@ -10,7 +11,7 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ className }) => {
   return (
-    <div className={classNames(styles.articleListItem, {}, [className])}>
+    <Card className={classNames(styles.articleListItem, {}, [className])}>
       <div className={styles.header}>
         <div className={styles.user}>
           <Skeleton borderRadius="50%" width={30} height={30} />
@@ -23,6 +24,6 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ clas
       <div className={styles.footer}>
         <Skeleton width={100} height={40} borderRadius={20} />
       </div>
-    </div>
+    </Card>
   );
 };
