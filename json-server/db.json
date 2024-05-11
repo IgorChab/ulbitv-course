@@ -90,8 +90,8 @@
       "title": "Swift news",
       "subtitle": "Что нового в Swift за 2024 год?",
       "img": "https://assets-global.website-files.com/63fda77e5fd49598bbf00892/6416e5ccdbc0d68da0d7727d_swift.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 103444,
+      "createdAt": "13.06.2024",
       "types": [
         "IT",
         "Swift"
@@ -163,8 +163,8 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 100,
+      "createdAt": "25.09.2021",
       "types": [
         "IT",
         "Python"
@@ -234,10 +234,10 @@
     {
       "id": "4",
       "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
+      "subtitle": "Что нового в Python за 2020 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 5000,
+      "createdAt": "7.04.2020",
       "types": [
         "IT",
         "Python"
@@ -261,8 +261,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kotlin_logo.svg/2560px-Kotlin_logo.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 592,
+      "createdAt": "10.06.2022",
       "types": [
         "IT",
         "Kotlin"
@@ -284,10 +284,10 @@
     {
       "id": "6",
       "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
+      "subtitle": "Что нового в React за 2023 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcBiBI248rgjtRfFgxc8WapC-w7npSGPi6GnV1_VUMww&s",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 861,
+      "createdAt": "26.03.2023",
       "types": [
         "IT",
         "React"
@@ -311,8 +311,8 @@
       "title": "React Native news",
       "subtitle": "Что нового в React Native за 2024 год?",
       "img": "https://w7.pngwing.com/pngs/363/962/png-transparent-react-native-hd-logo.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1384,
+      "createdAt": "11.05.2024",
       "types": [
         "IT",
         "React Native"
@@ -336,8 +336,8 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 37834,
+      "createdAt": "26.02.2021",
       "types": [
         "IT",
         "Python"
@@ -361,7 +361,7 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kotlin_logo.svg/2560px-Kotlin_logo.svg.png",
-      "views": 1022,
+      "views": 49392,
       "createdAt": "26.02.2022",
       "types": [
         "IT",
@@ -387,7 +387,7 @@
       "subtitle": "Что нового в React за 2024 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcBiBI248rgjtRfFgxc8WapC-w7npSGPi6GnV1_VUMww&s",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "17.10.2019",
       "types": [
         "IT",
         "React"
@@ -411,8 +411,8 @@
       "title": "React Native news",
       "subtitle": "Что нового в React Native за 2024 год?",
       "img": "https://w7.pngwing.com/pngs/363/962/png-transparent-react-native-hd-logo.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 502,
+      "createdAt": "27.09.2018",
       "types": [
         "IT",
         "React Native"
@@ -436,8 +436,8 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 39843,
+      "createdAt": "13.08.2022",
       "types": [
         "IT",
         "Python"
@@ -461,8 +461,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kotlin_logo.svg/2560px-Kotlin_logo.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 9223,
+      "createdAt": "5.01.2021",
       "types": [
         "IT",
         "Kotlin"
@@ -484,9 +484,9 @@
     {
       "id": "14",
       "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
+      "subtitle": "Что нового в React за 2022 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcBiBI248rgjtRfFgxc8WapC-w7npSGPi6GnV1_VUMww&s",
-      "views": 1022,
+      "views": 2832,
       "createdAt": "26.02.2022",
       "types": [
         "IT",
@@ -511,8 +511,8 @@
       "title": "React Native news",
       "subtitle": "Что нового в React Native за 2024 год?",
       "img": "https://w7.pngwing.com/pngs/363/962/png-transparent-react-native-hd-logo.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 23802,
+      "createdAt": "25.02.2023",
       "types": [
         "IT",
         "React Native"
@@ -537,7 +537,7 @@
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "16.02.2021",
       "types": [
         "IT",
         "Python"
@@ -561,8 +561,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kotlin_logo.svg/2560px-Kotlin_logo.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 872364,
+      "createdAt": "26.02.2020",
       "types": [
         "IT",
         "Kotlin"
@@ -586,8 +586,8 @@
       "title": "React news",
       "subtitle": "Что нового в React за 2024 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcBiBI248rgjtRfFgxc8WapC-w7npSGPi6GnV1_VUMww&s",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10422,
+      "createdAt": "22.08.2021",
       "types": [
         "IT",
         "React"
@@ -611,7 +611,7 @@
       "title": "React Native news",
       "subtitle": "Что нового в React Native за 2024 год?",
       "img": "https://w7.pngwing.com/pngs/363/962/png-transparent-react-native-hd-logo.png",
-      "views": 1022,
+      "views": 21022,
       "createdAt": "26.02.2022",
       "types": [
         "IT",
@@ -636,8 +636,8 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 982312,
+      "createdAt": "20.02.2023",
       "types": [
         "IT",
         "Python"
@@ -661,8 +661,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Kotlin_logo.svg/2560px-Kotlin_logo.svg.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 12022,
+      "createdAt": "8.04.2020",
       "types": [
         "IT",
         "Kotlin"
@@ -686,8 +686,8 @@
       "title": "React news",
       "subtitle": "Что нового в React за 2024 год?",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcBiBI248rgjtRfFgxc8WapC-w7npSGPi6GnV1_VUMww&s",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1028,
+      "createdAt": "26.11.2022",
       "types": [
         "IT",
         "React"
@@ -711,8 +711,8 @@
       "title": "React Native news",
       "subtitle": "Что нового в React Native за 2024 год?",
       "img": "https://w7.pngwing.com/pngs/363/962/png-transparent-react-native-hd-logo.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 2323,
+      "createdAt": "6.03.2024",
       "types": [
         "IT",
         "React Native"
