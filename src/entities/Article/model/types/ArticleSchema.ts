@@ -6,6 +6,16 @@ export const enum ArticleBlockType {
   CODE = 'CODE',
 }
 
+export const enum ArticleType {
+  ALL = 'all',
+  IT = 'IT',
+  ECONOMICS = 'Economics',
+  SCIENCE = 'Science',
+  POLITICS = 'Politics',
+  JS = 'JS',
+  PYTHON = 'Python'
+}
+
 interface ArticleBlockBase {
   id: string
   type: ArticleBlockType
@@ -37,7 +47,7 @@ export interface Article {
   img: string
   views: number
   createdAt: string
-  types: string[]
+  types: ArticleType[]
   blocks: ArticleBlock[]
   user: User
 }

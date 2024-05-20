@@ -1,5 +1,16 @@
 {
   "articlesPage": "Страница статей",
   "readMore": "Читать далее",
-  "articlesFetchError": "Произошла ошибка при загрузке статей"
+  "articlesFetchError": "Произошла ошибка при загрузке статей",
+  "sortBy": "Сортировать по:",
+  "byTitle": "заголовку",
+  "byViews": "просмотрам",
+  "byCreatedAt": "дате создания",
+  "byAsc": "возрастанию",
+  "byDesc": "убыванию",
+  "search": "Поиск...",
+  "all": "Все",
+  "politics": "Политика",
+  "economics": "Экономика",
+  "science": "Наука"
 }

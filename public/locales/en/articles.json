@@ -1,5 +1,16 @@
 {
   "articlesPage": "Articles Page",
   "readMore": "Read more",
-  "articlesFetchError": "Articles fetch error"
+  "articlesFetchError": "Articles fetch error",
+  "sortBy": "Sort by:",
+  "byTitle": "title",
+  "byViews": "views",
+  "byCreatedAt": "date of creation",
+  "byAsc": "by ascending",
+  "byDesc": "descending",
+  "search": "Search...",
+  "all": "All",
+  "politics": "Politics",
+  "economics": "Economics",
+  "science": "Science"
 }

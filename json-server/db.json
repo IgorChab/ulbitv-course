@@ -340,7 +340,8 @@
       "createdAt": "26.02.2021",
       "types": [
         "IT",
-        "Python"
+        "Python",
+        "Economics"
       ],
       "userId": "1",
       "blocks": [
@@ -465,7 +466,8 @@
       "createdAt": "5.01.2021",
       "types": [
         "IT",
-        "Kotlin"
+        "Kotlin",
+        "Politics"
       ],
       "userId": "1",
       "blocks": [
@@ -540,7 +542,8 @@
       "createdAt": "16.02.2021",
       "types": [
         "IT",
-        "Python"
+        "Python",
+        "Science"
       ],
       "userId": "1",
       "blocks": [
@@ -590,7 +593,8 @@
       "createdAt": "22.08.2021",
       "types": [
         "IT",
-        "React"
+        "React",
+        "Economics"
       ],
       "userId": "1",
       "blocks": [
@@ -640,7 +644,7 @@
       "createdAt": "20.02.2023",
       "types": [
         "IT",
-        "Python"
+        "Politics"
       ],
       "userId": "1",
       "blocks": [
@@ -665,7 +669,8 @@
       "createdAt": "8.04.2020",
       "types": [
         "IT",
-        "Kotlin"
+        "Kotlin",
+        "Politics"
       ],
       "userId": "1",
       "blocks": [
@@ -690,7 +695,8 @@
       "createdAt": "26.11.2022",
       "types": [
         "IT",
-        "React"
+        "React",
+        "Economics"
       ],
       "userId": "1",
       "blocks": [
@@ -715,7 +721,8 @@
       "createdAt": "6.03.2024",
       "types": [
         "IT",
-        "React Native"
+        "React Native",
+        "Science"
       ],
       "userId": "1",
       "blocks": [
@@ -780,13 +787,13 @@
   ],
   "profile": [
     {
-      "id": "1",
       "age": 20,
+      "id": "1",
       "firstName": "Igor",
       "lastName": "Chabanchuk",
       "gender": "male",
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "USD",
+      "country": "Georgia",
       "city": "Saint Petersburg",
       "username": "admin",
       "avatar": "https://kartinki.pics/uploads/posts/2022-12/1670303214_18-kartinkin-net-p-adidas-kartinki-vkontakte-18.jpg"

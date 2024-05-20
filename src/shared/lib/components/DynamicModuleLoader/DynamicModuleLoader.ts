@@ -5,7 +5,7 @@ import { type Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { type ReducerNames, type StoreWithReducerManager } from 'app/providers/StoreProvider';
 
-type ReducersMap = {
+export type ReducersMap = {
   [key in ReducerNames]?: Reducer
 };
 

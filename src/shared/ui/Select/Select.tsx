@@ -1,31 +1,41 @@
-import React, { type SelectHTMLAttributes, memo, forwardRef } from 'react';
+import React, { type SelectHTMLAttributes, type ChangeEvent, type LegacyRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Select.module.scss';
 
-interface SelectOptions {
-  value: string | number
+export interface SelectOptions<Value> {
+  value: Value
   content: string | number
 }
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+type SelectAttributes = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange'>;
+
+export interface SelectProps<Value extends string | number> extends SelectAttributes {
   className?: string
-  options: SelectOptions[]
+  value?: Value
+  options: Array<SelectOptions<Value>>
+  onChange?: (value: Value) => void
+  selectRef?: LegacyRef<HTMLSelectElement>
 }
 
-export const Select = memo(forwardRef<HTMLSelectElement, SelectProps>(({
+export const Select = <Value extends string | number>({
   className,
   value,
   options,
   onChange,
+  selectRef,
   ...otherProps
-}, ref) => {
+}: SelectProps<Value>) => {
+  const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    onChange && onChange(e.target.value as Value);
+  };
+
   return (
     <select
       className={classNames(styles.select, {}, [className])}
       value={value}
-      onChange={onChange}
-      ref={ref}
+      onChange={onChangeHandler}
+      ref={selectRef}
       {...otherProps}
     >
       {options.map(({ value, content }) => (
@@ -35,4 +45,4 @@ export const Select = memo(forwardRef<HTMLSelectElement, SelectProps>(({
       ))}
     </select>
   );
-}));
+};

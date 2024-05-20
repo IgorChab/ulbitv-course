@@ -1,5 +1,14 @@
 .card {
-  background-color: var(--card-bg);
   padding: 20px;
   border-radius: 20px;
+  width: fit-content;
+  border: 1px solid transparent;
+}
+
+.primary {
+  background-color: var(--card-bg);
+}
+
+.outlined {
+  border: 1px solid var(--card-bg);
 }

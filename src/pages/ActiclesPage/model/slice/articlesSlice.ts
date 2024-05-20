@@ -3,6 +3,7 @@ import { type Article } from 'entities/Article';
 import { type StateSchema } from 'app/providers/StoreProvider';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 
+import { articlesSelectors } from '../selectors/articlesSelectors';
 import { type ArticlesSchema, type ArticlesView } from '../types/articlesSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList';
 
@@ -48,12 +49,24 @@ const articlesSlice = createSlice({
     builder.addCase(fetchArticlesList.pending, (state, action) => {
       state.isLoading = true;
       state.error = undefined;
+
+      if (action.meta.arg.replaceData) {
+        articlesAdapter.removeAll(state);
+      }
     });
     builder.addCase(fetchArticlesList.fulfilled, (state, action) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      const limit = articlesSelectors.getArticlePageLimit(state);
       state.isLoading = false;
       state.error = undefined;
-      state.hasMore = action.payload.length > 0;
-      articlesAdapter.addMany(state, action.payload);
+      state.hasMore = action.payload.length >= limit;
+
+      if (action.meta.arg.replaceData) {
+        articlesAdapter.setMany(state, action.payload);
+      } else {
+        articlesAdapter.addMany(state, action.payload);
+      }
     });
     builder.addCase(fetchArticlesList.rejected, (state, action) => {
       state.isLoading = false;

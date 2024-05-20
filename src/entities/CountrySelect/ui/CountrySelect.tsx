@@ -1,9 +1,9 @@
-import React, { forwardRef, memo } from 'react';
+import React, { memo } from 'react';
 import { Select, type SelectProps } from 'shared/ui/Select/Select';
 
 import { Country } from '../model/types';
 
-interface CountrySelectProps extends Omit<SelectProps, 'value' | 'options'> {
+interface CountrySelectProps extends Omit<SelectProps<Country>, 'value' | 'options'> {
   value?: Country
 }
 
@@ -20,18 +20,17 @@ const countrySelectOptions: CountrySelectOptions[] = [
   { value: Country.GEORGIA, content: Country.GEORGIA }
 ];
 
-export const CountrySelect = memo(forwardRef<HTMLSelectElement, CountrySelectProps>(({
+export const CountrySelect = memo<CountrySelectProps>(({
   className,
   value,
   ...otherProps
-}, ref) => {
+}) => {
   return (
     <Select
       className={className}
       value={value}
       options={countrySelectOptions}
-      ref={ref}
       {...otherProps}
     />
   );
-}));
+});

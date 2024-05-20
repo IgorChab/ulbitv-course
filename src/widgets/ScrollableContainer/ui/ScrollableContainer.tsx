@@ -77,7 +77,7 @@ export const ScrollableContainer: FC<ScrollableContainerProps> = React.memo(({
     >
       {children}
       <OptionalRender condition={!!isNeedSaveScrollOffset}>
-        <div ref={targetNodeCallback} />
+        <div ref={targetNodeCallback} className={styles.target} />
       </OptionalRender>
     </div>
   );

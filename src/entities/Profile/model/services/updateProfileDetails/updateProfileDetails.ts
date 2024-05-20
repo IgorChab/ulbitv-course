@@ -11,7 +11,7 @@ export const updateProfileDetails = createAppAsyncThunk<Profile, Profile, { reje
     } = thunkAPI;
 
     try {
-      const response = await api.put('/profile', data);
+      const response = await api.put(`/profile/${data.id}`, data);
 
       if (!response.data) {
         throw new Error();

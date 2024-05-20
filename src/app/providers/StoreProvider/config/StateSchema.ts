@@ -7,6 +7,7 @@ import { type ArticleSchema } from 'entities/Article';
 import { type ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesSchema } from 'pages/ActiclesPage';
 import { type UISchema } from 'features/UI';
+import { type ArticlesFiltersSchema } from 'features/ArticlesFilters';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -19,6 +20,7 @@ export interface StateSchema {
   article?: ArticleSchema
   articleComments?: ArticleCommentsSchema
   articles?: ArticlesSchema
+  articlesFilters?: ArticlesFiltersSchema
 }
 
 export type ReducerNames = keyof StateSchema;

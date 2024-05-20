@@ -1,9 +1,9 @@
-import React, { forwardRef, memo } from 'react';
+import React, { memo } from 'react';
 import { Select, type SelectProps } from 'shared/ui/Select/Select';
 
 import { Currency } from '../model/types';
 
-interface CurrencySelectProps extends Omit<SelectProps, 'value' | 'options'> {
+interface CurrencySelectProps extends Omit<SelectProps<Currency>, 'value' | 'options'> {
   value?: Currency
 }
 
@@ -18,18 +18,17 @@ const countrySelectOptions: CurrencySelectOptions[] = [
   { value: Currency.USD, content: Currency.USD }
 ];
 
-export const CurrencySelect = memo(forwardRef<HTMLSelectElement, CurrencySelectProps>(({
+export const CurrencySelect = memo<CurrencySelectProps>(({
   className,
   value,
   ...otherProps
-}, ref) => {
+}) => {
   return (
     <Select
       className={className}
       value={value}
       options={countrySelectOptions}
-      ref={ref}
       {...otherProps}
     />
   );
-}));
+});

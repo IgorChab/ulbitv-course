@@ -19,3 +19,10 @@ export const Default: Story = {
     children: 'Lorem ipsum dolor sit amet, consectetur adip'
   }
 };
+
+export const Outlined: Story = {
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adip',
+    variant: 'outlined'
+  }
+};

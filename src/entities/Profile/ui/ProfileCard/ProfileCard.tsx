@@ -197,14 +197,28 @@ export const ProfileCard: FC = () => {
             name="country"
             control={control}
             render={({ field }) => (
-              <CountrySelect {...field} />
+              <CountrySelect
+                selectRef={field.ref}
+                name={field.name}
+                value={field.value}
+                disabled={field.disabled}
+                onBlur={field.onBlur}
+                onChange={field.onChange}
+              />
             )}
            />
           <Controller
             name="currency"
             control={control}
             render={({ field }) => (
-              <CurrencySelect {...field} />
+              <CurrencySelect
+                selectRef={field.ref}
+                name={field.name}
+                value={field.value}
+                disabled={field.disabled}
+                onBlur={field.onBlur}
+                onChange={field.onChange}
+              />
             )}
            />
         </div>

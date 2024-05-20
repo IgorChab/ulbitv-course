@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { type Article, ArticleBlockType } from 'entities/Article';
+import { type Article, ArticleBlockType, ArticleType } from 'entities/Article';
 
 export const articleMock: Article = {
   id: '1',
@@ -8,7 +8,7 @@ export const articleMock: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  types: ['IT', 'SCIENCE', 'POLITICS', 'JS'],
+  types: [ArticleType.IT, ArticleType.POLITICS],
   user: {
     id: '1',
     avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
