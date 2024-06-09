@@ -14,11 +14,6 @@
 
 .contentPage {
   display: flex;
-}
-
-.pageWrapper {
-  flex-grow: 1;
   height: calc(100vh - var(--navbar-height));
-  width: 100%;
 }
 

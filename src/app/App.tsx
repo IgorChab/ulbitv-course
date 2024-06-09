@@ -26,9 +26,7 @@ const App = () => {
           <Navbar />
           <div className="contentPage">
             <Sidebar />
-            <div className="pageWrapper">
-              <AppRouter />
-            </div>
+            <AppRouter />
           </div>
         </Suspense>
       </ErrorBoundary>

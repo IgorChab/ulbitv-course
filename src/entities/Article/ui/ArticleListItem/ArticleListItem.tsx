@@ -1,13 +1,12 @@
-import React, { type FC } from 'react';
+import React, { type FC, type HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Typography } from 'shared/ui/Typography/Typography';
-import { Button } from 'shared/ui/Button/Button';
 import EyeIcon from 'shared/assets/icons/icon_eye_outlined.svg';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { AppPaths } from 'shared/config/routeConfig/routeConfig';
 import { Card } from 'shared/ui/Card/Card';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import styles from './ArticleListItem.module.scss';
@@ -16,9 +15,10 @@ import { type Article, type IArticleTextBlock } from '../../model/types/ArticleS
 interface ArticleListItemProps {
   className?: string
   article: Article
+  target?: HTMLAttributeAnchorTarget
 }
 
-export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article }) => {
+export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article, target }) => {
   const {
     id,
     img,
@@ -31,15 +31,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article }
   } = article;
 
   const { t } = useTranslation('articles');
-  const navigate = useNavigate();
 
   const textBlock = blocks.find(
     (block) => block.type === 'TEXT'
   ) as IArticleTextBlock | undefined;
-
-  const onClickMoreButton = () => {
-    navigate(`${AppPaths.article_details}${id}`);
-  };
 
   return (
     <Card className={classNames(styles.articleListItem, {}, [className])}>
@@ -57,9 +52,14 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({ className, article }
         <ArticleTextBlock block={textBlock} className={styles.textBlock} />
       )}
       <div className={styles.footer}>
-        <Button variant="outline" onClick={onClickMoreButton}>
+        <AppLink
+          to={`${AppPaths.article_details}${id}`}
+          variant="primary"
+          target={target}
+          className={styles.link}
+        >
           {t('readMore')}
-        </Button>
+        </AppLink>
         <div className={styles.views}>
           <Typography variant="small">{views}</Typography>
           <EyeIcon />

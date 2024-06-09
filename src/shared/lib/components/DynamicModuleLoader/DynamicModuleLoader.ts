@@ -3,10 +3,14 @@ import type React from 'react';
 import { useStore } from 'react-redux';
 import { type Reducer } from '@reduxjs/toolkit';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { type ReducerNames, type StoreWithReducerManager } from 'app/providers/StoreProvider';
+import {
+  type ReducerNames,
+  type StateSchema,
+  type StoreWithReducerManager
+} from 'app/providers/StoreProvider';
 
 export type ReducersMap = {
-  [key in ReducerNames]?: Reducer
+  [key in ReducerNames]?: Reducer<NonNullable<StateSchema[key]>>
 };
 
 interface DynamicModuleLoaderProps {

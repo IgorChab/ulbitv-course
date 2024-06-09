@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { type FC, type HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { type ArticlesView } from 'pages/ActiclesPage';
 
@@ -14,11 +14,13 @@ interface ArticlesListProps {
   articles: Article[]
   view: ArticlesView
   isLoading?: boolean
+  skeletonCount?: number
+  target?: HTMLAttributeAnchorTarget
 }
 
-const renderSkeletons = (view: ArticlesView) => {
+const renderSkeletons = (view: ArticlesView, count?: number) => {
   const arrayLength = view === 'cell' ? 10 : 3;
-  return Array(arrayLength).fill(0).map((_, index) => {
+  return Array(count || arrayLength).fill(0).map((_, index) => {
     if (view === 'cell') {
       return (
         <ArticleCellItemSkeleton key={index} />
@@ -35,20 +37,22 @@ export const ArticlesList: FC<ArticlesListProps> = ({
   className,
   view,
   articles,
-  isLoading
+  skeletonCount,
+  isLoading,
+  target
 }) => {
   return (
     <div className={classNames(styles.articlesList, {}, [className])}>
       {view === 'cell' ? (
         articles.map((article) => (
-          <ArticleCellItem article={article} key={article.id} />
+          <ArticleCellItem article={article} key={article.id} target={target} />
         ))
       ) : (
         articles.map((article) => (
-          <ArticleListItem article={article} key={article.id} />
+          <ArticleListItem article={article} key={article.id} target={target} />
         ))
       )}
-      {isLoading && renderSkeletons(view)}
+      {isLoading && renderSkeletons(view, skeletonCount)}
     </div>
   );
 };

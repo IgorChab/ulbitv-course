@@ -769,6 +769,12 @@
       "articleId": "2",
       "text": "abc",
       "id": "DuILm0S"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "text": "test",
+      "id": "05oG-OP"
     }
   ],
   "users": [

@@ -8,6 +8,8 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useParams } from 'react-router-dom';
 
+import styles from './ProfilePage.module.scss';
+
 const ProfilePage: FC = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>() as { id: string };
@@ -25,8 +27,10 @@ const ProfilePage: FC = () => {
       }}
       removeAfterUnmount
     >
-      <div style={{ padding: '20px' }}>
-        <ProfileCard />
+      <div className={styles.profilePage}>
+        <div className={styles.profileCardContainer}>
+          <ProfileCard />
+        </div>
       </div>
     </DynamicModuleLoader>
   );

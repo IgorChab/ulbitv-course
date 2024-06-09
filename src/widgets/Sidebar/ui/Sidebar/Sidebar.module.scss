@@ -1,12 +1,13 @@
 .sidebar {
   width: var(--sidebar-width);
-  height: calc(100vh - var(--navbar-height));
+  height: 100%;
   background: var(--inverted-bg-color);
   transition: width 0.3s;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-shrink: 0;
   overflow: hidden;
 }
 

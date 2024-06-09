@@ -36,7 +36,7 @@ export const ScrollableContainer: FC<ScrollableContainerProps> = React.memo(({
   } = useInfiniteScroll(onScrollEnd);
 
   /**
-   * разобраться как установить scrollTop, если scrollContainer не имеет переполнения
+   * TODO: разобраться как установить scrollTop, если scrollContainer не имеет переполнения
    * например children еще не подгрузился как на стронице ArticleDetailsPage
    */
   useEffect(() => {

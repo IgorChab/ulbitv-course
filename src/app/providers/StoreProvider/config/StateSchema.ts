@@ -4,7 +4,7 @@ import { type LoginSchema } from 'features/AuthByUsername';
 import { type ProfileSchema } from 'entities/Profile';
 import { type AxiosInstance } from 'axios';
 import { type ArticleSchema } from 'entities/Article';
-import { type ArticleCommentsSchema } from 'pages/ArticleDetailsPage';
+import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesSchema } from 'pages/ActiclesPage';
 import { type UISchema } from 'features/UI';
 import { type ArticlesFiltersSchema } from 'features/ArticlesFilters';
@@ -18,9 +18,9 @@ export interface StateSchema {
   login?: LoginSchema
   profile?: ProfileSchema
   article?: ArticleSchema
-  articleComments?: ArticleCommentsSchema
   articles?: ArticlesSchema
   articlesFilters?: ArticlesFiltersSchema
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type ReducerNames = keyof StateSchema;

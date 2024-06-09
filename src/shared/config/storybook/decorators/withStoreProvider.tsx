@@ -7,14 +7,14 @@ import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'entities/Profile';
 import { articleReducer } from 'entities/Article';
 import { articlesFiltersReducer } from 'features/ArticlesFilters';
-import { articleCommentsReducer } from 'pages/ArticleDetailsPage';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   login: loginReducer,
   profile: profileReducer,
   article: articleReducer,
-  articleComments: articleCommentsReducer,
-  articlesFilters: articlesFiltersReducer
+  articlesFilters: articlesFiltersReducer,
+  articleDetailsPage: articleDetailsPageReducer
 };
 
 export const withStoreProvider = (
