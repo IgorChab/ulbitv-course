@@ -6,6 +6,9 @@ import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRen
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Typography } from 'shared/ui/Typography/Typography';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppPaths } from 'shared/config/routeConfig/routeConfig';
 
 import styles from './Navbar.module.scss';
 
@@ -35,23 +38,30 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   return (
     <header className={classNames(styles.navbar, {}, [className])}>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
+      <Typography className={styles.logo} textAlign="center">
+        Logo
+      </Typography>
       <div className={styles.links}>
-        {isUserAuth
-          ? (
-            <Button variant="clear" onClick={onClickLogout}>
-              {t('logout')}
-            </Button>
-            )
-          : (
-            <Button variant="clear" onClick={onOpenLoginModal}>
-              {t('login')}
-            </Button>
-            )
-        }
-        <OptionalRender condition={isOpenModal}>
-          <LoginModal onClose={onCloseLoginModal} />
-        </OptionalRender>
+        <AppLink to={AppPaths.article_create}>
+          {t('createArticle')}
+        </AppLink>
       </div>
+      {isUserAuth
+        ? (
+          <Button variant="clear" onClick={onClickLogout}>
+            {t('logout')}
+          </Button>
+        )
+        : (
+          <Button variant="clear" onClick={onOpenLoginModal}>
+            {t('login')}
+          </Button>
+        )
+      }
+      <OptionalRender condition={isOpenModal}>
+        <LoginModal onClose={onCloseLoginModal} />
+      </OptionalRender>
     </header>
   );
 };

@@ -18,23 +18,26 @@ import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { ScrollableContainer } from 'widgets/ScrollableContainer';
 
-import { recommendationsSelectors } from '../model/slice/articleRecommendationsSlice';
+import { recommendationsSelectors } from '../../model/slice/articleRecommendationsSlice';
 import {
   articleRecommendationsSelectors
-} from '../model/selectors/articleRecommendationsSelectors';
+} from '../../model/selectors/articleRecommendationsSelectors';
 import {
   fetchArticleRecommendations
-} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import {
+  addCommentForArticle
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
   fetchCommentsByArticleId
-} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import {
   commentsAdapterSelectors
-} from '../model/slice/articleCommentsSlice';
+} from '../../model/slice/articleCommentsSlice';
 import styles from './ArticleDetailsPage.module.scss';
-import { articleCommentsSelectors } from '../model/selectors/articleCommentsSelectors';
-import { articleDetailsPageReducer } from '../model/slice/articleDetailsPageReducer';
+import { articleCommentsSelectors } from '../../model/selectors/articleCommentsSelectors';
+import { articleDetailsPageReducer } from '../../model/slice/articleDetailsPageReducer';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducers: ReducersMap = {
   article: articleReducer,
@@ -67,6 +70,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <ScrollableContainer isNeedSaveScrollOffset className={className}>
+        <ArticleDetailsPageHeader />
         <ArticleDetails />
         <Typography className={styles.sectionTitle}>{t('weRecommend')}</Typography>
         <ArticlesList

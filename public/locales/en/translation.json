@@ -11,5 +11,6 @@
   "enterUsername": "Enter username",
   "enterPassword": "Enter password",
   "loginForm": "Login form",
-  "loginError": "Invalid credentials"
+  "loginError": "Invalid credentials",
+  "createArticle": "Create article"
 }

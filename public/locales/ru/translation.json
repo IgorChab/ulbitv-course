@@ -11,5 +11,6 @@
   "enterUsername": "Введите username",
   "enterPassword": "Введите пароль",
   "loginForm": "Форма авторизации",
-  "loginError": "Неверные учетные данные"
+  "loginError": "Неверные учетные данные",
+  "createArticle": "Создать статью"
 }
