@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
+import CopyPlugin from 'copy-webpack-plugin';
 
 import { type BuildOptions } from './types/config';
 
@@ -26,6 +27,11 @@ export const buildPlugins = ({
     }),
     new Dotenv({
       path: `./.env.${mode}`
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales }
+      ]
     })
   ];
 
