@@ -5,6 +5,7 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button } from 'shared/ui/Button/Button';
 import { ArrowIcon } from 'shared/ui/ArrowIcon/ArrowIcon';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack';
 
 import styles from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -28,7 +29,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: isCollapsed }, [className])}
     >
-      <div className={styles.linksContainer}>
+      <VStack gap={8} className={styles.linksContainer}>
         {
           sidebarItems.map((item) => (
             <SidebarItem
@@ -38,7 +39,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             />
           ))
          }
-      </div>
+      </VStack>
       <Button
         data-testid="toggleSidebarButton"
         variant="clear"

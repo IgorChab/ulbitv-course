@@ -9,6 +9,7 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useSelector } from 'react-redux';
 import { fetchArticlesList } from 'pages/ActiclesPage';
 import { useSearchParams } from 'react-router-dom';
+import { HStack } from 'shared/ui/Stack';
 
 import { articlesFiltersSelectors } from '../../model/selectors/articlesFiltersSelectors';
 import { type Order, type SortFields } from '../../model/types/ArticlesFiltersSchema';
@@ -64,11 +65,11 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = ({ className }) => {
 
   return (
     <div className={classNames(styles.articlesFilters, {}, [className])}>
-      <div className={styles.selectsWrapper}>
+      <HStack gap={8}>
         <Typography variant="subtitle">{t('sortBy')}</Typography>
         <ArticlesSortSelect onChange={onChangeSort} value={sort} />
         <ArticlesOrderSelect onChange={onChangeOrder} value={order} />
-      </div>
+      </HStack>
       <Card className={styles.input}>
         <Input label={t('search')} onChange={onChangeSearch} value={search} />
       </Card>

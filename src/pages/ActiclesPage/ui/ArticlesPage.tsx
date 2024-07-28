@@ -12,6 +12,7 @@ import { ArticlesViewSwitcher } from 'features/ArticlesViewSwitcher';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 import { ScrollableContainer } from 'widgets/ScrollableContainer';
 import { ArticlesFilters, articlesFiltersReducer } from 'features/ArticlesFilters';
+import { HStack } from 'shared/ui/Stack';
 
 import {
   articlesActions,
@@ -21,7 +22,6 @@ import {
 import { fetchArticlesList } from '../model/services/fetchArticlesList';
 import { articlesSelectors } from '../model/selectors/articlesSelectors';
 import { type ArticlesView } from '../model/types/articlesSchema';
-import styles from './ArticlesPage.module.scss';
 
 const reducers: ReducersMap = {
   articles: articlesReducer,
@@ -79,10 +79,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         onScrollEnd={onScrollEnd}
         isNeedSaveScrollOffset
       >
-        <div className={styles.header}>
+        <HStack justify='between'>
           {t('articlesPage')}
           <ArticlesViewSwitcher onSelectView={onSelectView} view={view} />
-        </div>
+        </HStack>
         <ArticlesFilters />
         <ArticlesList
           view={view}

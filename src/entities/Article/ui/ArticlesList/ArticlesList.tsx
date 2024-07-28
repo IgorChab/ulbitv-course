@@ -1,10 +1,9 @@
 import React, { type FC, type HTMLAttributeAnchorTarget } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { type ArticlesView } from 'pages/ActiclesPage';
+import { HStack } from 'shared/ui/Stack';
 
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { type Article } from '../../model/types/ArticleSchema';
-import styles from './ArticlesList.module.scss';
 import { ArticleCellItem } from '../ArticleCellItem/ArticleCellItem';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleCellItemSkeleton } from '../ArticleCellItem/ArticleCellItemSkeleton';
@@ -42,7 +41,7 @@ export const ArticlesList: FC<ArticlesListProps> = ({
   target
 }) => {
   return (
-    <div className={classNames(styles.articlesList, {}, [className])}>
+    <HStack className={className} wrap='wrap' gap={32}>
       {view === 'cell' ? (
         articles.map((article) => (
           <ArticleCellItem article={article} key={article.id} target={target} />
@@ -53,6 +52,6 @@ export const ArticlesList: FC<ArticlesListProps> = ({
         ))
       )}
       {isLoading && renderSkeletons(view, skeletonCount)}
-    </div>
+    </HStack>
   );
 };

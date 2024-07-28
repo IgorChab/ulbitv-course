@@ -1,6 +1,6 @@
 import React, { type FC, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
+import { HStack } from 'shared/ui/Stack';
 
 import styles from './Tabs.module.scss';
 
@@ -27,7 +27,7 @@ export const Tabs: FC<TabsProps> = React.memo(({
   }, [onTabClick]);
 
   return (
-    <div className={classNames(styles.tabs, {}, [className])}>
+    <HStack className={className} gap={8}>
       {tabs.map((tab) => (
         <Card
           onClick={onClickHandler(tab.value)}
@@ -38,6 +38,6 @@ export const Tabs: FC<TabsProps> = React.memo(({
           {tab.content}
         </Card>
       ))}
-    </div>
+    </HStack>
   );
 });
