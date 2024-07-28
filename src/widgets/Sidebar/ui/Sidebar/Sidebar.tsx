@@ -25,11 +25,11 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   };
 
   return (
-    <nav
+    <aside
       data-testid="sidebar"
       className={classNames(styles.sidebar, { [styles.collapsed]: isCollapsed }, [className])}
     >
-      <VStack gap={8} className={styles.linksContainer}>
+      <VStack gap={8} role='navigation' className={styles.linksContainer}>
         {
           sidebarItems.map((item) => (
             <SidebarItem
@@ -54,6 +54,6 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         <ThemeSwitcher />
         <LangSwitcher />
       </div>
-    </nav>
+    </aside>
   );
 };

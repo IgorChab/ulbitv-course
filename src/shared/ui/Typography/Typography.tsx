@@ -11,15 +11,25 @@ interface TypographyProps {
   textAlign?: 'left' | 'center' | 'right'
 }
 
+const mapSizeToTag: Record<
+  Required<TypographyProps>['variant'], Required<TypographyProps>['component']
+> = {
+  small: 'p',
+  subtitle: 'h3',
+  title: 'h1'
+};
+
 export const Typography: FC<TypographyProps> = React.memo(({
   className,
-  component = 'h1',
+  component,
   variant = 'title',
   children,
   textAlign = 'left'
 }) => {
+  const tag = component || mapSizeToTag[variant];
+
   return React.createElement(
-    component,
+    tag,
     {
       className: classNames('', {}, [className, styles[variant]]),
       style: { textAlign }
