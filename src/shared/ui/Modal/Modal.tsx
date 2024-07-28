@@ -34,7 +34,7 @@ export const Modal: FC<ModalProps> = ({
   }, [onClose]);
 
   return (
-    <Portal element={document.querySelector('.app')}>
+    <Portal element={document.body}>
       <div className={classNames(styles.modal, {}, [className])}>
         <div className={styles.backdrop} onClick={onClose}>
           <div className={styles.content} onClick={stopPropagation}>

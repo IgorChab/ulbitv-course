@@ -12,7 +12,7 @@ export const withTheme: Decorator = (
 
   return (
     <ThemeProvider themeForStorybook={theme}>
-      <div className={`app ${theme}`}>
+      <div className={`${theme}Theme`}>
         <Story />
       </div>
     </ThemeProvider>

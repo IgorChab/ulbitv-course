@@ -1,7 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
 import { Sidebar } from 'widgets/Sidebar';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
 import { PageError } from 'widgets/PageError';
@@ -12,7 +10,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import './styles/index.scss';
 
 const App = () => {
-  const { theme } = useTheme();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -20,17 +17,15 @@ const App = () => {
   }, []);
 
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <ErrorBoundary fallback={<PageError />}>
-        <Suspense fallback={''}>
-          <Navbar />
-          <div className="contentPage">
-            <Sidebar />
-            <AppRouter />
-          </div>
-        </Suspense>
-      </ErrorBoundary>
-    </div>
+    <ErrorBoundary fallback={<PageError />}>
+      <Suspense fallback={''}>
+        <Navbar />
+        <div className="contentPage">
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 
