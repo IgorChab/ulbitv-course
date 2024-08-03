@@ -1,6 +1,6 @@
 import { type Gender } from 'shared/constants/common';
-import { type Currency } from 'entities/CurrencySelect';
-import { type Country } from 'entities/CountrySelect';
+import { type Currency } from 'entities/CurrencyListBox';
+import { type Country } from 'entities/CountryListBox';
 
 export interface Profile {
   id: string

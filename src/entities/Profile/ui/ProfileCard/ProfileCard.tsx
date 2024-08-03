@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { CountrySelect, Country } from 'entities/CountrySelect';
-import { CurrencySelect, Currency } from 'entities/CurrencySelect';
+import { Country, CountryListBox } from 'entities/CountryListBox';
+import { CurrencyListBox, Currency } from 'entities/CurrencyListBox';
 import { type Profile, profileSelectors, updateProfileDetails } from 'entities/Profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Typography } from 'shared/ui/Typography/Typography';
@@ -14,6 +14,7 @@ import z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { OptionalRender } from 'shared/lib/components/OptionalRender/OptionalRender';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 import styles from './ProfileCard.module.scss';
 
@@ -101,7 +102,7 @@ export const ProfileCard: FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
+      <HStack>
         <div className={styles.leftButtonWrapper}>
           {
             canEditProfile && isEditing && (
@@ -127,9 +128,9 @@ export const ProfileCard: FC = () => {
             )}
           </OptionalRender>
         </div>
-      </div>
+      </HStack>
       <div className={styles.profileData}>
-        <div>
+        <VStack gap={4}>
           <Controller
             name="firstName"
             control={control}
@@ -171,8 +172,8 @@ export const ProfileCard: FC = () => {
               />
             )}
           />
-        </div>
-        <div>
+        </VStack>
+        <VStack gap={4}>
           <Controller
             name="username"
             control={control}
@@ -193,35 +194,31 @@ export const ProfileCard: FC = () => {
               />
             )}
           />
-          <Controller
-            name="country"
-            control={control}
-            render={({ field }) => (
-              <CountrySelect
-                selectRef={field.ref}
-                name={field.name}
-                value={field.value}
-                disabled={field.disabled}
-                onBlur={field.onBlur}
-                onChange={field.onChange}
-              />
-            )}
-           />
-          <Controller
-            name="currency"
-            control={control}
-            render={({ field }) => (
-              <CurrencySelect
-                selectRef={field.ref}
-                name={field.name}
-                value={field.value}
-                disabled={field.disabled}
-                onBlur={field.onBlur}
-                onChange={field.onChange}
-              />
-            )}
-           />
-        </div>
+          <HStack gap={8}>
+            <Controller
+              name="country"
+              control={control}
+              render={({ field }) => (
+                <CountryListBox
+                  value={field.value}
+                  disabled={field.disabled}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            <Controller
+              name="currency"
+              control={control}
+              render={({ field }) => (
+                <CurrencyListBox
+                  value={field.value}
+                  disabled={field.disabled}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+          </HStack>
+        </VStack>
       </div>
     </div>
   );

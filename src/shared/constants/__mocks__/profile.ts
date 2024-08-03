@@ -1,5 +1,5 @@
-import { Currency } from 'entities/CurrencySelect';
-import { Country } from 'entities/CountrySelect';
+import { Currency } from 'entities/CurrencyListBox';
+import { Country } from 'entities/CountryListBox';
 import { type Profile } from 'entities/Profile';
 
 export const profileMock: Profile = {

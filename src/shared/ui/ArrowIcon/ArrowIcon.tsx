@@ -12,10 +12,12 @@ interface ArrowIconProps extends React.SVGAttributes<SVGElement> {
 export const ArrowIcon: FC<ArrowIconProps> = React.memo(({
   className,
   direction = 'down',
+  fill,
   ...svgProps
 }) => {
   return (
     <ArrowDownIcon
+      style={{ fill }}
       className={classNames(styles.arrowIcon, {}, [className, styles[direction]])}
       {...svgProps}
     />
