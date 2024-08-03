@@ -1,0 +1,36 @@
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 5px 11px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.optionsContainer {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 4px;
+  width: max-content;
+  border: 1px solid var(--primary-color);
+  outline: none;
+}
+
+.option {
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.option[data-focus] {
+  opacity: 0.6;
+  background-color: var(--primary-color);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+}
