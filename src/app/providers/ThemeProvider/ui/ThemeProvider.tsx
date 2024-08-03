@@ -1,4 +1,4 @@
-import React, { type FC, type PropsWithChildren, useMemo, useState } from 'react';
+import React, { type FC, type PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 
 import { Theme, ThemeContext } from '../lib/ThemeContext';
@@ -15,6 +15,10 @@ export const ThemeProvider: FC<PropsWithChildren<{ themeForStorybook?: Theme }>>
     theme: themeForStorybook || theme,
     setTheme
   }), [theme, themeForStorybook]);
+
+  useEffect(() => {
+    document.body.className = `${theme}Theme`;
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={defaultProps}>

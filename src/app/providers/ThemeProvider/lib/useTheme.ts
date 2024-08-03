@@ -28,7 +28,6 @@ export const useTheme = (): UseThemeResult => {
     const newTheme = switchTheme(theme);
     setTheme(newTheme);
     localStorage.setItem(LocalStorageKeys.THEME, newTheme);
-    document.body.className = `${theme}Theme`;
   };
 
   return {
