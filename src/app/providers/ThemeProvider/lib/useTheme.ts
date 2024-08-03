@@ -21,13 +21,14 @@ const switchTheme = (theme: Theme) => {
   }
 };
 
-const useTheme = (): UseThemeResult => {
+export const useTheme = (): UseThemeResult => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
     const newTheme = switchTheme(theme);
     setTheme(newTheme);
     localStorage.setItem(LocalStorageKeys.THEME, newTheme);
+    document.body.className = `${theme}Theme`;
   };
 
   return {
@@ -35,5 +36,3 @@ const useTheme = (): UseThemeResult => {
     toggleTheme
   };
 };
-
-export default useTheme;

@@ -1,11 +1,11 @@
-import React, { type FC, type PropsWithChildren, useEffect, useMemo, useState } from 'react';
+import React, { type FC, type PropsWithChildren, useMemo, useState } from 'react';
 import { LocalStorageKeys } from 'shared/constants/LocalStorageKeys';
 
 import { Theme, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LocalStorageKeys.THEME) as Theme || Theme.LIGHT;
 
-const ThemeProvider: FC<PropsWithChildren<{ themeForStorybook?: Theme }>> = ({
+export const ThemeProvider: FC<PropsWithChildren<{ themeForStorybook?: Theme }>> = ({
   children,
   themeForStorybook
 }) => {
@@ -16,15 +16,9 @@ const ThemeProvider: FC<PropsWithChildren<{ themeForStorybook?: Theme }>> = ({
     setTheme
   }), [theme, themeForStorybook]);
 
-  useEffect(() => {
-    document.body.className = `${theme}Theme`;
-  }, [theme]);
-
   return (
     <ThemeContext.Provider value={defaultProps}>
       {children}
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;
