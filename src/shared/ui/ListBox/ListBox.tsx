@@ -33,7 +33,8 @@ export const ListBox = <Value extends string | number>({
   return (
     <HListBox value={value} onChange={onChange} disabled={disabled}>
       <ListboxButton
-        className={classNames(styles.button, { [styles.disabled]: !!disabled }, [className])}
+        className={classNames(styles.button, {}, [className])}
+        disabled={disabled}
       >
         <HStack>
           {value}

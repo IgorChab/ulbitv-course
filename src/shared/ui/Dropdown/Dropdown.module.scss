@@ -1,36 +1,42 @@
-.button {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 5px 11px;
-  border: none;
-  border-radius: 5px;
+.menuButton {
   cursor: pointer;
+  width: max-content;
+  background: none;
   outline: none;
+  border: none;
+  color: var(--primary-color);
 }
 
-.optionsContainer {
+.itemsContainer {
   background-color: var(--secondary-color);
   border-radius: 5px;
   padding: 5px;
   margin-top: 4px;
-  width: max-content;
   border: 1px solid var(--primary-color);
   outline: none;
+  display: flex;
+  flex-direction: column;
 }
 
-.option {
+.menuItem {
   padding: 5px;
   border-radius: 5px;
   color: white;
   cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
 }
 
-.option[data-focus] {
+.menuItem[data-focus] {
   opacity: 0.6;
   background-color: var(--primary-color);
 }
 
-.option[data-disabled], .button[data-disabled] {
+.menuItem[data-disabled] {
   opacity: 0.5;
   cursor: default;
 }

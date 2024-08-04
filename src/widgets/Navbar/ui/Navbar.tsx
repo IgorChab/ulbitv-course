@@ -9,6 +9,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Typography } from 'shared/ui/Typography/Typography';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { AppPaths } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 import styles from './Navbar.module.scss';
 
@@ -22,7 +24,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const isUserAuth = !!useSelector(getUserAuthData);
+  const userData = useSelector(getUserAuthData);
 
   const onOpenLoginModal = useCallback(() => {
     setIsOpenModal(true);
@@ -47,11 +49,21 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
           {t('createArticle')}
         </AppLink>
       </div>
-      {isUserAuth
+      {userData
         ? (
-          <Button variant="clear" onClick={onClickLogout}>
-            {t('logout')}
-          </Button>
+          <Dropdown
+            items={[
+              {
+                text: t('profile'),
+                href: `${AppPaths.profile}${userData.id}`
+              },
+              {
+                text: t('logout'),
+                onClick: onClickLogout
+              }
+            ]}
+            triggerSlot={<Avatar src={userData?.avatar} size={40} />}
+          />
         )
         : (
           <Button variant="clear" onClick={onOpenLoginModal}>
