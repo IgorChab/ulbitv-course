@@ -5,6 +5,7 @@ import {
   type ReducersMapObject
 } from '@reduxjs/toolkit';
 import { axiosClient } from 'shared/api/axiosClient';
+import { rtkClient } from 'shared/api/rtkClient';
 
 import { createReducerManager } from './reducerManager';
 import { type StateSchema } from './StateSchema';
@@ -29,7 +30,7 @@ export const createReduxStore = (
           api: axiosClient
         }
       }
-    })
+    }).concat(rtkClient.middleware)
   }) as StoreWithReducerManager;
 
   store.reducerManager = reducerManager;

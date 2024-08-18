@@ -775,6 +775,18 @@
       "articleId": "7",
       "text": "test",
       "id": "05oG-OP"
+    },
+    {
+      "userId": "2",
+      "articleId": "5",
+      "text": "test abc",
+      "id": "Cp060w_"
+    },
+    {
+      "userId": "2",
+      "articleId": "5",
+      "text": "comment",
+      "id": "5i4KCJj"
     }
   ],
   "users": [

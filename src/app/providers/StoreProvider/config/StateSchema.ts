@@ -8,11 +8,13 @@ import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { type ArticlesSchema } from 'pages/ActiclesPage';
 import { type UISchema } from 'features/UI';
 import { type ArticlesFiltersSchema } from 'features/ArticlesFilters';
+import { type rtkClient } from 'shared/api/rtkClient';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   ui: UISchema
+  [rtkClient.reducerPath]: ReturnType<typeof rtkClient.reducer>
 
   // Async reducers
   login?: LoginSchema

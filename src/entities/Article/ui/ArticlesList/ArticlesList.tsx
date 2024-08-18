@@ -10,7 +10,7 @@ import { ArticleCellItemSkeleton } from '../ArticleCellItem/ArticleCellItemSkele
 
 interface ArticlesListProps {
   className?: string
-  articles: Article[]
+  articles?: Article[]
   view: ArticlesView
   isLoading?: boolean
   skeletonCount?: number
@@ -43,11 +43,11 @@ export const ArticlesList: FC<ArticlesListProps> = ({
   return (
     <HStack className={className} wrap='wrap' gap={32}>
       {view === 'cell' ? (
-        articles.map((article) => (
+        articles?.map((article) => (
           <ArticleCellItem article={article} key={article.id} target={target} />
         ))
       ) : (
-        articles.map((article) => (
+        articles?.map((article) => (
           <ArticleListItem article={article} key={article.id} target={target} />
         ))
       )}
